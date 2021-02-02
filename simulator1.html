@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulator1</title>
+    <script src="Common/jquery-3.5.1.min.js"></script>
+    <script src="Common/Chart.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="Simulator1/styles1.css">
+</head>
+
+<body direction: rtl;>
+    <div id="main-container">
+        <h2>العلاقة بين السعة والشحنة وفارق الجهد في المكثف</h2>
+
+        <div class="flex-container">
+            <div id="myform" class="flex-child">
+
+                <div id="my-Constraints">
+                    <input type="checkbox" id="myCheckCapacity" onclick="myCheckBoxFunction()">
+                    <label for="myCheck">مكثف بسعة ثابتة</label>
+                    <input class="number_input2" type="number" id="Capacity" min="0" max="1000" value="10" onchange="synchCapacity()" hidden><br><br>
+                    <label for="myCheck">فارق الجهد الأقصى</label>
+                    <input class="number_input2" type="number" id="Voltage" min="0" max="1000" value="100" onchange="synchVoltage()">
+                </div>
+                <div id="my-labels">
+                    <label for="C">السعة C(F)</label>
+                    <label for="U">فارق الجهد U(V)</label>
+                    <label for="Q">الشحنة Q(C)</label>
+                </div>
+
+                <div id="my-inputs">
+                    <input class="number_input" type="number" id="C" name="C" min="0" max="1000" value="10" onchange="calculateResult()">
+                    <input class="number_input" type="number" id="U" name="U" min="0" max="1000" value="30" onchange="calculateResult()">
+                    <input class="number_input" type="number" id="Q" name="Q" min="0" max="1000" value="0" onchange="calculateResult()" readonly>
+                </div>
+                <div id="my-radios">
+                    <label for="male" class="label-calculate">إحتساب</label>
+                    <input type="radio" class="radio_input" id="radio-C" onclick="handleClick(this);" name="radio3" value="C">
+                    <input type="radio" class="radio_input" id="radio-U" onclick="handleClick(this);" name="radio3" value="U">
+                    <input type="radio" class="radio_input" id="radio-Q" onclick="handleClick(this);" name="radio3" value="Q" checked>
+                </div>
+                <div id="my-buttons">
+                    <button id="btn-append" class="button"><span>إضافة سطر</span></button>&nbsp;
+                    <button id="btn-clear" class="button">تصفير</button>&nbsp;
+                    <button id="btn-chart" class="button">تحديث الرسم البياني</button>&nbsp;
+                </div>
+
+                <table id="data-table"></table>
+            </div>
+            <div id="myChart" class="flex-child">
+                <canvas id="canvasChart"></canvas>
+                <br>
+            </div>
+        </div>
+
+    </div>
+</body>
+<script src="Simulator1/myChartUtils1.js"></script>
+<script type="text/javascript" src="Simulator1/myChart1.js"></script>
+<script type="text/javascript" src="Simulator1/common1.js"></script>
+
+</html>
+
+</html>

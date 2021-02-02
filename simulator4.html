@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulator4</title>
+    <script src="Common/jquery-3.5.1.min.js"></script>
+    <script src="Common/Chart.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="simulator4/styles4.css">
+</head>
+
+<body direction: rtl;>
+    <div id="main-container">
+        <h2> أثناء شحن المكثف</h2>
+
+        <div class="flex-container">
+
+            <div id="myform" class="flex-child">
+                <div id="my-labels">
+                    <div class="inline-block">
+                        <label for="R4" class="block">المقاوم</label>
+                        <label for="R4" class="block">R(Ω)</label>
+                        <input class="number_input" type="number" id="R4" name="R4" min="0" max="1000" value="10" onchange="calculateResult()">
+                    </div>
+                    <div class="inline-block">
+                        <label for="C4" class="block">سعة المكثف</label>
+                        <label for="C4" class="block">C(F)</label>
+                        <input class="number_input" type="number" id="C4" name="C4" min="0" max="1000" value="30" onchange="calculateResult()">
+                    </div>
+                    <div class="inline-block">
+                        <label for="E4" class="block">فارق الجهد الاقصى</label>
+                        <label for="E4" class="block">E(V)</label>
+                        <input class="number_input" type="number" id="E4" name="E4" min="0" max="1000" value="0" onchange="calculateResult()">
+                    </div>
+                    <div class="inline-block">
+                        <label for="T4" class="block">لحظة القياس</label>
+                        <label for="T4" class="block">t(s)</label>
+                        <input class="number_input" type="number" id="T4" name="T4" min="0" max="1000" value="0" onchange="calculateResult()">
+                    </div>
+                </div>
+                <div id="my-results">
+                    <div class="inline-block">
+                        <label for="myCheck">مخرجات ثابت الزمن Ƭ(s) =</label>
+                        <input class="number_input2" type="number" id="ct4" min="0" max="1000" value="0" disabled><br>
+                    </div>
+                    <div class="inline-block">
+                        <label for="myCheck">فولتية المكثف المتغيرة بحسب الزمن u(t) =</label>
+                        <input class="number_input2" type="number" id="u4" min="0" max="1000" value="0" disabled><br>
+                    </div>
+                    <div class="inline-block">
+                        <label for="myCheck">قيمة التيار المتدفق في الدارة بحسب الزمن i(t) =</label>
+                        <input class="number_input2" type="number" id="i4" min="0" max="1000" value="0" disabled><br>
+                    </div>
+                </div>
+                <div>
+                    <div id="my-buttons">
+                        <button id="btn-append" class="button"><span>إضافة سطر</span></button>&nbsp;
+                        <button id="btn-clear" class="button">تصفير</button>&nbsp;
+                        <button id="btn-chart" class="button">تحديث الرسم البياني</button>&nbsp;
+                    </div>
+                    <table id="data-table"></table>
+                </div>
+            </div>
+
+            <div id="myimage" class="flex-child">
+                <img src="Simulator4/simulator4.png">
+                <br>
+            </div>
+
+            <div id="myChart" class="flex-child">
+                <canvas id="canvasChart"></canvas>
+                <br>
+            </div>
+        </div>
+
+    </div>
+</body>
+<script src="Simulator4/myChartUtils4.js"></script>
+<script type="text/javascript" src="Simulator4/myChart4.js"></script>
+<script type="text/javascript" src="Simulator4/common4.js"></script>
+
+</html>
+
+</html>

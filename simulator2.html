@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulator2</title>
+    <script src="Common/jquery-3.5.1.min.js"></script>
+    <script src="Common/Chart.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="Simulator2/styles2.css">
+</head>
+
+<body direction: rtl;>
+    <div id="main-container">
+        <h2>العلاقة بين السعة ومساحة اللوحين والمسافة بينهما في المكثف المتوازي اللوحين</h2>
+        <!--C=Em * A/d-->
+        <div class="flex-container">
+            <div id="myform" class="flex-child">
+
+                <div action="/action_page.php">
+                    <label for="my-materials">إختر المادة:</label>
+                    <select name="my-materials-combo" id="my-materials-combo">
+                      <option value=8.85e-12>فراغ</option>
+                      <option value=9.74e-12>الستايروفوم</option>
+                      <option value=1.86e-11>تفلون</option>
+                      <option value=2.04e-11>بولي ايثيلين</option>
+                      <option value=2.04e-11>البولي بروبلين</option>
+                      <option value=2.12e-11>السيليكا</option>
+                      <option value=2.30e-11>البوليسترين</option>
+                      <option value=2.48e-11>بولي كربونات</option>
+                      <option value=3.9825e-11>صفائح إيبوكسي زجاجية</option>
+                      <option value=6.195e-11>بعض انواع الزجاج</option>
+                      <option value=8.85e-12>الغازات بما فيها الهواء</option>
+                      <option value=7.08025e-10>الماء</option> 
+                      <option value="1">مادة أخرى</option>    
+                    </select>
+                    <label for="my_m">سماحية العازل &#8455;m:</label>
+                    <input class="number_materials" type="number" id="Em_number" min="8.85e-12" max="1" value="8.85e-12" step="1e-11" disabled>
+                </div>
+
+                <div id="my-Constraints">
+                    <input type="checkbox" id="myCheckEr" onclick="myCheckBoxEr()">
+                    <label for="myCheck">إحتساب السماحية عبر إدخال ثابت العزل &#8455;ᵣ</label>
+                    <input class="number_materials" type="number" id="Er_number" min="1" value="1" step="1e-11" onchange="calcEm()" hidden><br><br>
+                </div>
+                <div id="my-distance">
+                    <input type="checkbox" id="mydistanceCapacity" onclick="mydistanceFunction()">
+                    <label for="myCheck">المسافة  ثابتة</label>
+                    <input class="number_input2" type="number" id="fixDistance" min="0" max="1000" value="10" onchange="synchDistance()" hidden><br><br>
+                </div>
+                <div id="my-labels">
+                    <label for="C2">السعة C(F)</label>
+                    <label for="d2">المسافة d(m)</label>
+                    <label for="A2">المساحة A(m2)</label>
+                </div>
+
+                <div id="my-inputs">
+                    <input class="number_input" type="number" id="C2" name="C2" min="0" max="1000" value="8e-12" step="1e-11" onchange="calculateResult()">
+                    <input class="number_input" type="number" id="d2" name="d2" min="0" max="1000" value="30" onchange="calculateResult()">
+                    <input class="number_input" type="number" id="A2" name="A2" min="0" max="1000" value="0" onchange="calculateResult()" readonly>
+                </div>
+                <div id="my-radios">
+                    <label for="male" class="label-calculate">إحتساب</label>
+                    <input type="radio" class="radio_input" id="radio-C2" onclick="handleClick(this);" name="radio3" value="C2">
+                    <input type="radio" class="radio_input" id="radio-d2" onclick="handleClick(this);" name="radio3" value="d2">
+                    <input type="radio" class="radio_input" id="radio-A2" onclick="handleClick(this);" name="radio3" value="A2" checked>
+                </div>
+                <div id="my-buttons">
+                    <button id="btn-append" class="button"><span>إضافة سطر</span></button>&nbsp;
+                    <button id="btn-clear" class="button">تصفير</button>&nbsp;
+                    <button id="btn-chart" class="button">تحديث الرسم البياني</button>&nbsp;
+                </div>
+
+                <table id="data-table"></table>
+            </div>
+            <div id="myChart" class="flex-child">
+                <canvas id="canvasChart"></canvas>
+                <br>
+            </div>
+        </div>
+
+    </div>
+</body>
+<script src="Simulator2/myChartUtils2.js"></script>
+<script type="text/javascript" src="Simulator2/myChart2.js"></script>
+<script type="text/javascript" src="Simulator2/common2.js"></script>
+
+</html>
+
+</html>
