@@ -1,11 +1,6 @@
 @font-face {
-    font-family: myFirstFont;
-    src: url(http://fonts.googleapis.com/earlyaccess/droidarabickufi.css);
-}
-
-@font-face {
     font-family: 'Droid Arabic Regular';
-    src: local('/CSS/DroidKufi-Regular.ttf');
+    src: url("F:/Projects/PysicsSimulatorProject/Common/Fonts/DroidKufi-Regular.ttf");
     font-weight: normal;
     font-style: normal;
 }
@@ -19,14 +14,19 @@ body {
 }
 
 div {
+    font-family: 'Droid Arabic Regular';
     padding: 5px;
+    padding-left: 1px;
+    padding-right: 1px;
 }
 
 h2 {
     margin-bottom: 10px;
+    text-align: center;
 }
 
 .button {
+    font-family: 'Droid Arabic Regular';
     padding: 2px 6px;
     font-size: 16px;
     color: white;
@@ -64,7 +64,7 @@ h2 {
 }
 
 label {
-    font-family: Arial;
+    font-family: tahoma;
 }
 
 .label-calculate {
@@ -109,9 +109,9 @@ canvas {
 }
 
 #myform {
-    min-width: 450px;
-    max-width: 450px;
-    width: 450px;
+    min-width: 500px;
+    max-width: 500px;
+    width: 500px;
 }
 
 .styled {
@@ -124,13 +124,14 @@ canvas {
 
 .number_input {
     height: 20px;
-    padding-right: 2px;
+    width: 100px;
     text-align: center;
     display: block;
 }
 
 .number_input2 {
     height: 15px;
+    width: 100px;
     padding-right: 10px;
     margin-left: 10px;
     text-align: center;
@@ -155,7 +156,7 @@ canvas {
 }
 
 #data-table {
-    font-family: calibri, arial;
+    font-family: tahoma;
 }
 
 #data-table thead td {
@@ -164,6 +165,6 @@ canvas {
 
 #data-table td {
     border: 1px solid #466E85;
-    width: 100px;
+    width: 133px;
     padding: 2px;
 }

@@ -88,6 +88,7 @@ $(document).ready(function(e) {
         'لا يوجد أسطر في الجدول ...');
 
     $('#btn-append').click(function(e) {
+        disableValue(true);
         var data2 = [{
             field1: document.getElementById("T4").value,
             field2: document.getElementById("u4").value,
@@ -97,66 +98,35 @@ $(document).ready(function(e) {
     });
 
     $('#btn-clear').click(function(e) {
+        disableValue(false);
         dt.clear();
         var x = document.getElementById("myChart");
         x.style.display = "none";
 
     });
-
 });
 
-function myCheckBoxFunction() {
-    var checkBox = document.getElementById("myCheckCapacity");
-    var text = document.getElementById("Capacity");
-    if (checkBox.checked == true) {
-        text.style.display = "inline-block";
-        document.getElementById('C').disabled = true;
-        document.getElementById('radio-Q').checked = true;
-        document.getElementById('radio-C').disabled = true
-        document.getElementById('C').value = document.getElementById('Capacity').value;
-    } else {
-        text.style.display = "none";
-        document.getElementById('radio-C').disabled = false;
-        document.getElementById('C').disabled = false;
-    };
+function disableValue(boole) {
+    document.getElementById('R4').disabled = boole;
+    document.getElementById('C4').disabled = boole;
+    document.getElementById('E4').disabled = boole;
 }
 
-var currentValue = 'Q';
-
-function handleClick(myRadio) {
-    currentValue = myRadio.value;
-    if (currentValue == 'C') {
-        document.getElementById('C').readOnly = true;
-        document.getElementById('U').readOnly = false;
-        document.getElementById('Q').readOnly = false;
-    } else if (currentValue == 'U') {
-        document.getElementById('C').readOnly = false;
-        document.getElementById('U').readOnly = true;
-        document.getElementById('Q').readOnly = false;
-    } else {
-        document.getElementById('C').readOnly = false;
-        document.getElementById('U').readOnly = false;
-        document.getElementById('Q').readOnly = true;
-    }
-}
-window.synchCapacity = function() {
-    document.getElementById('C').value = document.getElementById('Capacity').value;
-}
 window.calculateResult = function() {
     var R4 = document.getElementById('R4').value;
     var C4 = document.getElementById('C4').value;
     var E4 = document.getElementById('E4').value;
     var T4 = document.getElementById('T4').value;
 
-
     var ct4 = parseFloat(R4) * parseFloat(C4);
-    document.getElementById('ct4').value = ct4.toFixed(2);
+    document.getElementById('ct4').value = ct4.toFixed(5);
 
     var ex4 = Math.exp(-T4 / ct4);
 
     var u4 = parseFloat(E4) * (1 - ex4);
-    document.getElementById('u4').value = u4.toFixed(2);
+    document.getElementById('u4').value = u4.toFixed(5);
 
     var i4 = parseFloat(E4) * ex4 / parseFloat(R4);
-    document.getElementById('i4').value = i4.toFixed(2);
+
+    document.getElementById('i4').value = i4.toFixed(8);
 }
