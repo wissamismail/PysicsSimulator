@@ -90,6 +90,13 @@ label {
     background-color: rgb(243, 248, 250);
 }
 
+#myform,
+#myChart {
+    min-width: 500px;
+    max-width: 500px;
+    width: 500px;
+}
+
 canvas {
     -moz-user-select: none;
     -webkit-user-select: none;

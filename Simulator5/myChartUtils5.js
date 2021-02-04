@@ -6,13 +6,13 @@ var configu = {
             label: 'فولتية المكثف',
             backgroundColor: 'rgb(54, 162, 235)',
             borderColor: 'rgb(54, 162, 235)',
-            data: [{ x: 0.01, y: 3.65264 }, { x: 0.02, y: 5.9711 }, { x: 0.03, y: 7.44271 }, { x: 0.04, y: 8.37679 }, { x: 0.08, y: 9.73652 }, { x: 0.1, y: 9.89385 }],
+            data: [{ x: 0.01, y: 6.34736 }, { x: 0.02, y: 4.0289 }, { x: 0.03, y: 2.55729 }, { x: 0.04, y: 1.62321 }, { x: 0.08, y: 0.26348 }, { x: 0.1, y: 0.10615 }],
             fill: false,
         }, {
             label: 'مخرجات ثابت الزمن',
             backgroundColor: 'rgb(153, 102, 255)',
             borderColor: 'rgb(153, 102, 255)',
-            data: [{ x: 0.022, y: 0 }, { x: 0.044, y: 0 }, { x: 0.066, y: 0 }, { x: 0.088, y: 0 }],
+            data: [{ x: 0.022, y: 0 }, { x: 0.044, y: 0 }, { x: 0.066, y: 0 }, { x: 0.088, y: 0 }, { x: 0.11, y: 0 }],
             fill: false,
             pointRadius: 5,
             pointHoverRadius: 10,
@@ -72,13 +72,13 @@ var configi = {
             label: 'قيمة التيار المتدفق',
             backgroundColor: 'rgb(255, 159, 64)',
             borderColor: 'rgb(255, 159, 64)',
-            data: [{ x: 0.01, y: 0.06347364 }, { x: 0.02, y: 0.04028903 }, { x: 0.03, y: 0.02557292 }, { x: 0.04, y: 0.01623206 }, { x: 0.08, y: 0.0026348 }, { x: 0.1, y: 0.00106153 }],
+            data: [{ x: 0.01, y: -0.06347364 }, { x: 0.02, y: -0.04028903 }, { x: 0.03, y: -0.02557292 }, { x: 0.04, y: -0.01623206 }, { x: 0.08, y: -0.0026348 }, { x: 0.1, y: -0.00106153 }],
             fill: false,
         }, {
             label: 'مخرجات ثابت الزمن',
             backgroundColor: 'rgb(153, 102, 255)',
             borderColor: 'rgb(153, 102, 255)',
-            data: [{ x: 0.022, y: 0 }, { x: 0.044, y: 0 }, { x: 0.066, y: 0 }, { x: 0.088, y: 0 }],
+            data: [{ x: 0.022, y: 0 }, { x: 0.044, y: 0 }, { x: 0.066, y: 0 }, { x: 0.088, y: 0 }, { x: 0.11, y: 0 }],
             fill: false,
             pointRadius: 5,
             pointHoverRadius: 10,
@@ -130,9 +130,6 @@ var configi = {
             }]
         }
     }
-};
-var randomScalingFactor = function() {
-    return Math.ceil(Math.random() * 10.0) * Math.pow(10, Math.ceil(Math.random() * 5));
 };
 
 window.onload = function() {
