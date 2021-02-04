@@ -120,18 +120,18 @@ window.calculateResult = function() {
     /*var To = R * C;
     var timy = -t / R * C;
     var x = Math.exp(timy);
-    var U = E * (1 - x);
-    var I = E * x / R; */
+    var U = E *  x;
+    var I = -E * x / R; */
 
     var ct4 = parseFloat(R4) * parseFloat(C4);
     document.getElementById('ct4').value = parseFloat(ct4.toFixed(5));
 
     var ex4 = Math.exp(-T4 / ct4);
 
-    var u4 = parseFloat(E4) * (1 - ex4);
+    var u4 = parseFloat(E4) * ex4;
     document.getElementById('u4').value = parseFloat(u4.toFixed(5));
 
-    var i4 = parseFloat(E4) * ex4 / parseFloat(R4);
+    var i4 = -parseFloat(E4) * ex4 / parseFloat(R4);
 
     document.getElementById('i4').value = parseFloat(i4.toFixed(8));
 }
