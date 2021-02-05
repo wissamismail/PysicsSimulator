@@ -110,9 +110,6 @@ $(document).ready(function(e) {
 
     $('#btn-clear').click(function(e) {
         dt.clear();
-        var x = document.getElementById("myChart");
-        x.style.display = "none";
-
     });
 
 });

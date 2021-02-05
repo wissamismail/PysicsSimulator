@@ -166,6 +166,7 @@ canvas {
 
 #data-table thead td {
     background-color: #8CCCF1;
+    font-weight: bold;
 }
 
 #data-table td {

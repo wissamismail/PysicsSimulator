@@ -119,11 +119,17 @@ $(document).ready(function(e) {
 
 });
 
+
 function appendFunction() {
-    document.getElementById('Q').disabled = true;
-    document.getElementById('radio-C').checked = true;
-    document.getElementById('radio-Q').disabled = true;
-    handleClick(document.getElementById('radio-C'));
+    if (document.getElementById('Q').disabled != true) {
+        document.getElementById('Q').disabled = true;
+        if (document.getElementById('radio-Q').checked == true) {
+            document.getElementById('radio-C').checked = true;
+            handleClick(document.getElementById('radio-C'));
+            var currentValue = 'C';
+        }
+        document.getElementById('radio-Q').disabled = true;
+    }
 }
 
 function clearFunction() {
@@ -197,14 +203,21 @@ document.getElementById('btn-chart').addEventListener('click', function() {
     }
     Ct = 1 / Ct;
 
-    var dataTotal = [{
+    var dataTotal2 = [{
+        field1: 'السعة المكافئة',
+        field2: 'فارق الجهد المكافئ',
+        field3: 'الشحنة المكافئة',
+    }];
+    dt.load(dataTotal2, true);
+    var myRow = table.rows[table.rows.length - 1];
+    myRow.className = 'rowTotalStyle';
+
+    var dataTotal1 = [{
         field1: Ct.toFixed(2),
         field2: Ut.toFixed(2),
         field3: Qt,
     }];
-    dt.load(dataTotal, true);
+    dt.load(dataTotal1, true);
     var myRow = table.rows[table.rows.length - 1];
-    myRow.style.backgroundColor = 'rgb(54, 162, 235)';
-    myRow.style.border = '1 px solid black';
-
+    myRow.className = 'rowStyle';
 });

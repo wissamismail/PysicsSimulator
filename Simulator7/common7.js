@@ -1,4 +1,3 @@
-//file:///F:/Projects/PysicsSimulator/Simulator1/index.html
 var dynamicTable = (function() {
 
     var _tableId, _table,
@@ -74,6 +73,23 @@ var dynamicTable = (function() {
             }
             return this;
         },
+        /** Loads the specified data to the table body. */
+        load: function(data, append) {
+            if (_table.length < 1) return; //not configured.
+            _setHeaders();
+            _removeNoItemsInfo();
+            if (data && data.length > 0) {
+                var rows = '';
+                $.each(data, function(index, item) {
+                    rows += _buildRowColumns(_fields, item);
+                });
+                var mthd = append ? 'append' : 'html';
+                _table.children('tbody')[mthd](rows);
+            } else {
+                _setNoItemsInfo();
+            }
+            return this;
+        },
         /** Clears the table body. */
         clear: function() {
             _setNoItemsInfo();
@@ -82,12 +98,10 @@ var dynamicTable = (function() {
     };
 }());
 
+
+var dt = dynamicTable.config('data-table', ['field1', 'field2', 'field3'], ['السعة', 'فارق الجهد', 'الشحنة'], //set to null for field names instead of custom header names
+    'لا يوجد أسطر في الجدول ...');
 $(document).ready(function(e) {
-
-    var dt = dynamicTable.config('data-table', ['field1', 'field2', 'field3'], ['السعة', 'فارق الجهد', 'الشحنة'], //set to null for field names instead of custom header names
-        'لا يوجد أسطر في الجدول ...');
-
-
     $('#btn-append').click(function(e) {
         var data2 = [{
             field1: document.getElementById("C").value,
@@ -95,28 +109,31 @@ $(document).ready(function(e) {
             field3: document.getElementById("Q").value,
         }];
         dt.load(data2, true);
+        appendFunction()
     });
 
     $('#btn-clear').click(function(e) {
         dt.clear();
+        clearFunction(false)
     });
 
 });
 
-function myCheckBoxFunction() {
-    var checkBox = document.getElementById("myCheckCapacity");
-    var text = document.getElementById("Capacity");
-    if (checkBox.checked == true) {
-        text.style.display = "inline-block";
-        document.getElementById('C').disabled = true;
-        document.getElementById('radio-Q').checked = true;
-        document.getElementById('radio-C').disabled = true
-        document.getElementById('C').value = document.getElementById('Capacity').value;
-    } else {
-        text.style.display = "none";
-        document.getElementById('radio-C').disabled = false;
-        document.getElementById('C').disabled = false;
-    };
+function appendFunction() {
+    if (document.getElementById('U').disabled != true) {
+        document.getElementById('U').disabled = true;
+        if (document.getElementById('radio-U').checked == true) {
+            document.getElementById('radio-C').checked = true;
+            handleClick(document.getElementById('radio-C'));
+            var currentValue = 'C';
+        }
+        document.getElementById('radio-U').disabled = true;
+    }
+}
+
+function clearFunction() {
+    document.getElementById('U').disabled = false;
+    document.getElementById('radio-U').disabled = false;
 }
 
 var currentValue = 'Q';
@@ -137,9 +154,7 @@ function handleClick(myRadio) {
         document.getElementById('Q').readOnly = true;
     }
 }
-window.synchCapacity = function() {
-    document.getElementById('C').value = document.getElementById('Capacity').value;
-}
+
 window.calculateResult = function() {
     var C = document.getElementById('C').value;
     var U = document.getElementById('U').value;
@@ -155,8 +170,51 @@ window.calculateResult = function() {
         var result = parseFloat(C) * parseFloat(U);
         document.getElementById('Q').value = result.toFixed(2);
     }
-    if (parseFloat(document.getElementById('U').value) >= parseFloat(document.getElementById('Voltage').value)) {
-        alert("فارق الجهد تعدى الحد الأقصى, لا يمكن استخدام هذا المكثف");
-        document.getElementById('U').value = document.getElementById('Voltage').value;
+}
+
+window.calculateTotal = function() {
+    var C = document.getElementById('C').value;
+    var U = document.getElementById('U').value;
+    var Q = document.getElementById('Q').value;
+    //Q = C * U
+    if (currentValue == 'C') {
+        var result = parseFloat(Q) / parseFloat(U);
+        document.getElementById('C').value = result.toFixed(2);
+    } else if (currentValue == 'U') {
+        var result = parseFloat(Q) / parseFloat(C);
+        document.getElementById('U').value = result.toFixed(2);
+    } else {
+        var result = parseFloat(C) * parseFloat(U);
+        document.getElementById('Q').value = result.toFixed(2);
     }
 }
+
+document.getElementById('btn-chart').addEventListener('click', function() {
+
+    var Ct = 0;
+    var Ut = document.getElementById('U').value;
+    var Qt = 0;
+
+    var table = document.getElementById("data-table");
+    for (var i = 1, row; row = table.rows[i]; i++) {
+        Ct += parseFloat(row.cells[0].innerText);
+        Qt += parseFloat(row.cells[2].innerText);
+    }
+    var dataTotal2 = [{
+        field1: 'السعة المكافئة',
+        field2: 'فارق الجهد المكافئ',
+        field3: 'الشحنة المكافئة',
+    }];
+    dt.load(dataTotal2, true);
+    var myRow = table.rows[table.rows.length - 1];
+    myRow.className = 'rowTotalStyle';
+
+    var dataTotal1 = [{
+        field1: Ct.toFixed(2),
+        field2: Ut,
+        field3: Qt.toFixed(2),
+    }];
+    dt.load(dataTotal1, true);
+    var myRow = table.rows[table.rows.length - 1];
+    myRow.className = 'rowStyle';
+});
