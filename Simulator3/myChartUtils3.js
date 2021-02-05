@@ -1,12 +1,12 @@
 var config = {
     type: 'line',
     data: {
-        labels: ['0', '20', '40', '60', '80'],
+        labels: ['0', '5', '15', '20', '35'],
         datasets: [{
-            label: 'الشحنة',
+            label: 'الطاقة المخزنة',
             backgroundColor: 'rgb(54, 162, 235)',
             borderColor: 'rgb(54, 162, 235)',
-            data: [{ x: 0, y: 0 }, { x: 20, y: 2e-11 }, { x: 40, y: 4e-11 }, { x: 60, y: 6e-11 }, { x: 80, y: 8e-11 }],
+            data: [{ x: 0, y: 0 }, { x: 5, y: 25 }, { x: 15, y: 75 }, { x: 20, y: 100 }, { x: 35, y: 175 }],
             fill: false,
         }]
     },
@@ -14,7 +14,7 @@ var config = {
         responsive: true,
         title: {
             display: true,
-            text: 'Em/d = 8.85e-13'
+            text: 'السعة ثابتة بقيمة 5'
         },
         tooltips: {
             mode: 'index',
@@ -32,7 +32,7 @@ var config = {
                     userCallback: function(tick) {
                         var remain = tick / (Math.pow(10, Math.floor(Chart.helpers.log10(tick))));
                         if (remain === 1 || remain === 2 || remain === 5) {
-                            return tick.toString() + 'm²';
+                            return tick.toString() + 'F';
                         }
                         return '';
                     },
@@ -40,7 +40,7 @@ var config = {
                 },
                 scaleLabel: {
                     display: true,
-                    labelString: ' المساحة'
+                    labelString: 'السعة'
                 }
             }],
             yAxes: [{
@@ -48,13 +48,13 @@ var config = {
                 display: true,
                 ticks: {
                     userCallback: function(tick) {
-                        return tick.toString() + 'F';
+                        return tick.toString() + 'J';
                     },
                     beginAtZero: true
                 },
                 scaleLabel: {
                     display: true,
-                    labelString: 'السعة'
+                    labelString: 'الطاقة المخزنة'
                 }
             }]
         }
@@ -69,29 +69,29 @@ window.onload = function() {
 document.getElementById('btn-chart').addEventListener('click', function() {
 
     config.data.datasets.splice(0, 1);
-    var A2labels = [];
-    var C2Data = [];
+    var Ulabels = [];
+    var QData = [];
     var table = document.getElementById("data-table");
     var points = [];
     for (var i = 1, row; row = table.rows[i]; i++) {
-        A2labels.push(row.cells[2].innerText);
-        C2Data.push(row.cells[0].innerText);
+        Ulabels.push(row.cells[0].innerText);
+        QData.push(row.cells[2].innerText);
     }
-    A2labels.sort((a, b) => a - b);
-    C2Data.sort((a, b) => a - b);
-    for (var i = 0; i < A2labels.length; i++) {
-        points.push({ x: A2labels[i], y: C2Data[i] });
+    Ulabels.sort((a, b) => a - b);
+    QData.sort((a, b) => a - b);
+    for (var i = 0; i < Ulabels.length; i++) {
+        points.push({ x: Ulabels[i], y: QData[i] });
     }
     var newDataset = {
-        label: 'السعة',
+        label: 'الطاقة المخزنة',
         backgroundColor: 'rgb(54, 162, 235)',
         borderColor: 'rgb(54, 162, 235)',
         data: points,
         fill: false
     };
 
-    config.data.labels = A2labels;
+    config.data.labels = Ulabels;
     config.data.datasets.push(newDataset);
-    config.options.title.text = 'Em/d= ' + document.getElementById('Em_number').value / document.getElementById("fixDistance").value;
+    //config.options.title.text = 'السعة ثابتة بقيمة ' + document.getElementById("Capacity").value;
     window.myLine.update();
 });

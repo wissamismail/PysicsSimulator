@@ -48,7 +48,7 @@ var config = {
                 display: true,
                 ticks: {
                     userCallback: function(tick) {
-                        return tick.toString();
+                        return tick.toString() + 'C';
                     },
                     beginAtZero: true
                 },
