@@ -4,8 +4,8 @@ var config = {
         labels: ['0', '5', '15', '20', '35'],
         datasets: [{
             label: 'الشحنة',
-            backgroundColor: 'rgb(54, 162, 235)',
-            borderColor: 'rgb(54, 162, 235)',
+            backgroundColor: 'DarkOrange',
+            borderColor: 'DarkOrange',
             data: [{ x: 0, y: 0 }, { x: 5, y: 25 }, { x: 15, y: 75 }, { x: 20, y: 100 }, { x: 35, y: 175 }],
             fill: false,
         }]
@@ -74,8 +74,8 @@ document.getElementById('btn-chart').addEventListener('click', function() {
     };
 
     config.data.datasets.splice(0, 1);
-    var Ulabels = [];
-    var QData = [];
+    var Ulabels = [0];
+    var QData = [0];
     var table = document.getElementById("data-table");
     var points = [];
     for (var i = 1, row; row = table.rows[i]; i++) {
@@ -89,8 +89,8 @@ document.getElementById('btn-chart').addEventListener('click', function() {
     }
     var newDataset = {
         label: 'الشحنة',
-        backgroundColor: 'rgb(54, 162, 235)',
-        borderColor: 'rgb(54, 162, 235)',
+        backgroundColor: 'DarkOrange',
+        borderColor: 'DarkOrange',
         data: points,
         fill: false
     };

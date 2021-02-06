@@ -4,8 +4,8 @@ var config = {
         labels: ['0', '20', '40', '60', '80'],
         datasets: [{
             label: 'الشحنة',
-            backgroundColor: 'rgb(54, 162, 235)',
-            borderColor: 'rgb(54, 162, 235)',
+            backgroundColor: 'Coral',
+            borderColor: 'Coral',
             data: [{ x: 0, y: 0 }, { x: 20, y: 2e-11 }, { x: 40, y: 4e-11 }, { x: 60, y: 6e-11 }, { x: 80, y: 8e-11 }],
             fill: false,
         }]
@@ -72,7 +72,10 @@ document.getElementById('btn-chart').addEventListener('click', function() {
     var A2labels = [];
     var C2Data = [];
     var table = document.getElementById("data-table");
-    var points = [];
+    var points = [{
+        x: 0,
+        y: 0
+    }];
     for (var i = 1, row; row = table.rows[i]; i++) {
         A2labels.push(row.cells[2].innerText);
         C2Data.push(row.cells[0].innerText);
@@ -84,8 +87,8 @@ document.getElementById('btn-chart').addEventListener('click', function() {
     }
     var newDataset = {
         label: 'السعة',
-        backgroundColor: 'rgb(54, 162, 235)',
-        borderColor: 'rgb(54, 162, 235)',
+        backgroundColor: 'Coral',
+        borderColor: 'Coral',
         data: points,
         fill: false
     };

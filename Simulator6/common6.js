@@ -173,20 +173,20 @@ window.calculateResult = function() {
     }
 }
 
-window.calculateTotal = function() {
+window.calculateResult = function() {
     var C = document.getElementById('C').value;
     var U = document.getElementById('U').value;
     var Q = document.getElementById('Q').value;
     //Q = C * U
     if (currentValue == 'C') {
         var result = parseFloat(Q) / parseFloat(U);
-        document.getElementById('C').value = result.toFixed(2);
+        document.getElementById('C').value = result.toFixed(8);
     } else if (currentValue == 'U') {
         var result = parseFloat(Q) / parseFloat(C);
-        document.getElementById('U').value = result.toFixed(2);
+        document.getElementById('U').value = result.toFixed(6);
     } else {
         var result = parseFloat(C) * parseFloat(U);
-        document.getElementById('Q').value = result.toFixed(2);
+        document.getElementById('Q').value = result.toFixed(8);
     }
 }
 

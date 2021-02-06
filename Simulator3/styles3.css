@@ -84,8 +84,8 @@ label {
 
 #myform,
 #myChart {
-    min-width: 650px;
-    max-width: 650px;
+    min-width: 750px;
+    max-width: 750px;
     width: 650px;
 }
 
@@ -114,7 +114,7 @@ canvas {
 }
 
 .number_input {
-    width: 70px;
+    width: 100px;
     height: 20px;
     padding-right: 10px;
     margin-left: 10px;

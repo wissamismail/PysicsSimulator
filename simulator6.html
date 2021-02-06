@@ -22,9 +22,9 @@
                 </div>
 
                 <div id="my-inputs">
-                    <input class="number_input" type="number" id="C" name="C" min="0" max="1000" value="10" onchange="calculateResult()">
-                    <input class="number_input" type="number" id="U" name="U" min="0" max="1000" value="30" onchange="calculateResult()">
-                    <input class="number_input" type="number" id="Q" name="Q" min="0" max="1000" value="0" onchange="calculateResult()" readonly>
+                    <input class="number_input" type="number" id="C" name="C" min="0" value="0.0000001" step="1E-6" onchange="calculateResult()">
+                    <input class="number_input" type="number" id="U" name="U" min="0" value="30" onchange="calculateResult()">
+                    <input class="number_input" type="number" id="Q" name="Q" min="0" value="0.000003" step="0.00001" onchange="calculateResult()" readonly>
                 </div>
                 <div id="my-radios">
                     <label for="male" class="label-calculate">إحتساب</label>

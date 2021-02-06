@@ -21,18 +21,18 @@
                     <label for="C">السعة C(F)</label>
                     <label for="U">&nbsp  فارق الجهد U(V)</label>
                     <label for="Q">الشحنة Q(C)</label>
-                    <label for="t">الزمن t(s)</label>
+                    <label for="t">المدة t(s)</label>
                     <label for="E">&nbsp الطاقة المخزنة E(J)</label>
-                    <label for="P">القدرة P(W)</label>
+                    <label for="P">معدل القدرة P(W)</label>
                 </div>
 
                 <div id="my-inputs">
-                    <input class="number_input" type="number" id="C" name="C" min="0" max="1000" value="" placeholder="input">
-                    <input class="number_input" type="number" id="U" name="U" min="0" max="1000" value="" placeholder="calculated" onchange="calculateQEP()">
-                    <input class="number_input" type="number" id="Q" name="Q" min="0" max="1000" value="" placeholder="calculated" onchange="calculateUEP()">
-                    <input class="number_input" type="number" id="t" name="t" min="1" max="1000" value="1" placeholder="input" onchange="calculateP()">
-                    <input class="number_input" type="number" id="E" name="E" min="0" max="1000" value="" placeholder="calculated" readonly>
-                    <input class="number_input" type="number" id="P" name="P" min="0" max="1000" value="" placeholder="calculated" readonly>
+                    <input class="number_input" type="number" id="C" name="C" min="0" value="0.000001" step="1E-6" placeholder="input">
+                    <input class="number_input" type="number" id="U" name="U" min="0" value="30" placeholder="calculated" onchange="calculateQEP()">
+                    <input class="number_input" type="number" id="Q" name="Q" min="0" value="0.00001" step="1E-5" placeholder="calculated" onchange="calculateUEP()">
+                    <input class="number_input" type="number" id="t" name="t" min="1" value="1" placeholder="input" onchange="calculateP()">
+                    <input class="number_input" type="number" id="E" name="E" min="0" value="" placeholder="calculated" disabled>
+                    <input class="number_input" type="number" id="P" name="P" min="0" value="" placeholder="calculated" disabled>
                 </div>
 
                 <div id="my-buttons">

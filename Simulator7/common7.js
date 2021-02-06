@@ -162,13 +162,13 @@ window.calculateResult = function() {
 
     if (currentValue == 'C') {
         var result = parseFloat(Q) / parseFloat(U);
-        document.getElementById('C').value = result.toFixed(2);
+        document.getElementById('C').value = result.toFixed(8);
     } else if (currentValue == 'U') {
         var result = parseFloat(Q) / parseFloat(C);
-        document.getElementById('U').value = result.toFixed(2);
+        document.getElementById('U').value = result.toFixed(6);
     } else {
         var result = parseFloat(C) * parseFloat(U);
-        document.getElementById('Q').value = result.toFixed(2);
+        document.getElementById('Q').value = result.toFixed(8);
     }
 }
 
@@ -179,13 +179,13 @@ window.calculateTotal = function() {
     //Q = C * U
     if (currentValue == 'C') {
         var result = parseFloat(Q) / parseFloat(U);
-        document.getElementById('C').value = result.toFixed(2);
+        document.getElementById('C').value = result.toFixed(8);
     } else if (currentValue == 'U') {
         var result = parseFloat(Q) / parseFloat(C);
-        document.getElementById('U').value = result.toFixed(2);
+        document.getElementById('U').value = result.toFixed(6);
     } else {
         var result = parseFloat(C) * parseFloat(U);
-        document.getElementById('Q').value = result.toFixed(2);
+        document.getElementById('Q').value = result.toFixed(8);
     }
 }
 

@@ -20,22 +20,22 @@
                 <div action="/action_page.php">
                     <label for="my-materials">إختر المادة:</label>
                     <select name="my-materials-combo" id="my-materials-combo">
-                      <option value=8.85e-12>فراغ</option>
-                      <option value=9.74e-12>الستايروفوم</option>
-                      <option value=1.86e-11>تفلون</option>
-                      <option value=2.04e-11>بولي ايثيلين</option>
-                      <option value=2.04e-11>البولي بروبلين</option>
-                      <option value=2.12e-11>السيليكا</option>
-                      <option value=2.30e-11>البوليسترين</option>
-                      <option value=2.48e-11>بولي كربونات</option>
-                      <option value=3.9825e-11>صفائح إيبوكسي زجاجية</option>
-                      <option value=6.195e-11>بعض انواع الزجاج</option>
-                      <option value=8.85e-12>الغازات بما فيها الهواء</option>
-                      <option value=7.08025e-10>الماء</option> 
+                      <option value=8.85E-12>فراغ</option>
+                      <option value=9.74E-12>الستايروفوم</option>
+                      <option value=1.86E-11>تفلون</option>
+                      <option value=2.04E-11>بولي ايثيلين</option>
+                      <option value=2.04E-11>البولي بروبلين</option>
+                      <option value=2.12E-11>السيليكا</option>
+                      <option value=2.30E-11>البوليسترين</option>
+                      <option value=2.48E-11>بولي كربونات</option>
+                      <option value=3.9825E-11>صفائح إيبوكسي زجاجية</option>
+                      <option value=6.195E-11>بعض انواع الزجاج</option>
+                      <option value=8.85E-12>الغازات بما فيها الهواء</option>
+                      <option value=7.08025E-10>الماء</option> 
                       <option value="1">مادة أخرى</option>    
                     </select>
                     <label for="my_m">سماحية العازل &#8455;m:</label>
-                    <input class="number_materials" type="number" id="Em_number" min="8.85e-12" max="1" value="8.85e-12" step="1e-11" disabled>
+                    <input class="number_materials" type="number" id="Em_number" min="0" value="8.85E-12" step="1E-11" disabled>
                 </div>
 
                 <div id="my-Constraints">
@@ -46,7 +46,7 @@
                 <div id="my-distance">
                     <input type="checkbox" id="mydistanceCapacity" onclick="mydistanceFunction()">
                     <label for="myCheck">المسافة  ثابتة</label>
-                    <input class="number_input2" type="number" id="fixDistance" min="0" max="1000" value="10" onchange="synchDistance()" hidden><br><br>
+                    <input class="number_input2" type="number" id="fixDistance" min="0" value="0.01" step="0.01" onchange="synchDistance()" hidden><br><br>
                 </div>
                 <div id="my-labels">
                     <label for="C2">السعة C(F)</label>
@@ -55,9 +55,9 @@
                 </div>
 
                 <div id="my-inputs">
-                    <input class="number_input" type="number" id="C2" name="C2" min="0" max="1000" value="8e-12" step="1e-11" onchange="calculateResult()">
-                    <input class="number_input" type="number" id="d2" name="d2" min="0" max="1000" value="30" onchange="calculateResult()">
-                    <input class="number_input" type="number" id="A2" name="A2" min="0" max="1000" value="0" onchange="calculateResult()" readonly>
+                    <input class="number_input" type="number" id="C2" name="C2" min="0" value="0.000001" step="1E-6" onchange="calculateResult()">
+                    <input class="number_input" type="number" id="d2" name="d2" min="0" value="0.01" step="0.01" onchange="calculateResult()">
+                    <input class="number_input" type="number" id="A2" name="A2" min="0" value="0.0001" step="0.0001" onchange="calculateResult()" readonly>
                 </div>
                 <div id="my-radios">
                     <label for="male" class="label-calculate">إحتساب</label>

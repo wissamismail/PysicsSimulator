@@ -100,9 +100,6 @@ $(document).ready(function(e) {
     $('#btn-clear').click(function(e) {
         disableValue(false);
         dt.clear();
-        var x = document.getElementById("myChart");
-        x.style.display = "none";
-
     });
 });
 
@@ -124,12 +121,12 @@ window.calculateResult = function() {
     var I = E * x / R; */
 
     var ct4 = parseFloat(R4) * parseFloat(C4);
-    document.getElementById('ct4').value = parseFloat(ct4.toFixed(5));
+    document.getElementById('ct4').value = parseFloat(ct4.toFixed(8));
 
     var ex4 = Math.exp(-T4 / ct4);
 
     var u4 = parseFloat(E4) * (1 - ex4);
-    document.getElementById('u4').value = parseFloat(u4.toFixed(5));
+    document.getElementById('u4').value = parseFloat(u4.toFixed(6));
 
     var i4 = parseFloat(E4) * ex4 / parseFloat(R4);
 

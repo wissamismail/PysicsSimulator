@@ -20,9 +20,9 @@
                 <div id="my-Constraints">
                     <input type="checkbox" id="myCheckCapacity" onclick="myCheckBoxFunction()">
                     <label for="myCheck">مكثف بسعة ثابتة</label>
-                    <input class="number_input2" type="number" id="Capacity" min="0" max="1000" value="10" onchange="synchCapacity()" hidden><br><br>
+                    <input class="number_input2" type="number" id="Capacity" min="0" value="0.000001" step="1E-6" onchange="synchCapacity()" hidden><br><br>
                     <label for="myCheck">فارق الجهد الأقصى</label>
-                    <input class="number_input2" type="number" id="Voltage" min="0" max="1000" value="100" onchange="synchVoltage()">
+                    <input class="number_input2" type="number" id="Voltage" min="0" value="100" onchange="synchVoltage()">
                 </div>
                 <div id="my-labels">
                     <label for="C">السعة C(F)</label>
@@ -31,9 +31,9 @@
                 </div>
 
                 <div id="my-inputs">
-                    <input class="number_input" type="number" id="C" name="C" min="0" max="1000" value="10" onchange="calculateResult()">
-                    <input class="number_input" type="number" id="U" name="U" min="0" max="1000" value="30" onchange="calculateResult()">
-                    <input class="number_input" type="number" id="Q" name="Q" min="0" max="1000" value="0" onchange="calculateResult()" readonly>
+                    <input class="number_input" type="number" id="C" name="C" min="0" value="0.000001" step="1E-6" onchange="calculateResult()">
+                    <input class="number_input" type="number" id="U" name="U" min="0" value="30" onchange="calculateResult()">
+                    <input class="number_input" type="number" id="Q" name="Q" min="0" value="0.00001" step="1E-5" onchange="calculateResult()" readonly>
                 </div>
                 <div id="my-radios">
                     <label for="male" class="label-calculate">إحتساب</label>

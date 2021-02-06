@@ -159,7 +159,7 @@ window.calculateResult = function() {
     var Em = document.getElementById('Em_number').value;
     if (currentValue == 'C2') {
         var result = Em * parseFloat(A) / parseFloat(d);
-        document.getElementById('C2').value = result.toFixed(2);
+        document.getElementById('C2').value = result.toFixed(8);
     } else if (currentValue == 'd2') {
         var result = Em * parseFloat(A) / parseFloat(C);
         document.getElementById('d2').value = result.toFixed(2);

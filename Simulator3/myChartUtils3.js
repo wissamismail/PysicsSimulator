@@ -4,8 +4,8 @@ var config = {
         labels: ['0', '5', '15', '20', '35'],
         datasets: [{
             label: 'الطاقة المخزنة',
-            backgroundColor: 'rgb(54, 162, 235)',
-            borderColor: 'rgb(54, 162, 235)',
+            backgroundColor: 'Coral',
+            borderColor: 'Coral',
             data: [{ x: 0, y: 0 }, { x: 5, y: 25 }, { x: 15, y: 75 }, { x: 20, y: 100 }, { x: 35, y: 175 }],
             fill: false,
         }]
@@ -32,7 +32,7 @@ var config = {
                     userCallback: function(tick) {
                         var remain = tick / (Math.pow(10, Math.floor(Chart.helpers.log10(tick))));
                         if (remain === 1 || remain === 2 || remain === 5) {
-                            return tick.toString() + 'F';
+                            return tick.toString() + 'V';
                         }
                         return '';
                     },
@@ -40,7 +40,7 @@ var config = {
                 },
                 scaleLabel: {
                     display: true,
-                    labelString: 'السعة'
+                    labelString: 'فارق الجهد'
                 }
             }],
             yAxes: [{
@@ -72,9 +72,12 @@ document.getElementById('btn-chart').addEventListener('click', function() {
     var Ulabels = [];
     var QData = [];
     var table = document.getElementById("data-table");
-    var points = [];
+    var points = [{
+        x: 0,
+        y: 0
+    }];
     for (var i = 1, row; row = table.rows[i]; i++) {
-        Ulabels.push(row.cells[0].innerText);
+        Ulabels.push(row.cells[1].innerText);
         QData.push(row.cells[2].innerText);
     }
     Ulabels.sort((a, b) => a - b);
@@ -84,14 +87,14 @@ document.getElementById('btn-chart').addEventListener('click', function() {
     }
     var newDataset = {
         label: 'الطاقة المخزنة',
-        backgroundColor: 'rgb(54, 162, 235)',
-        borderColor: 'rgb(54, 162, 235)',
+        backgroundColor: 'Coral',
+        borderColor: 'Coral',
         data: points,
         fill: false
     };
 
     config.data.labels = Ulabels;
     config.data.datasets.push(newDataset);
-    //config.options.title.text = 'السعة ثابتة بقيمة ' + document.getElementById("Capacity").value;
+    config.options.title.text = 'السعة ثابتة بقيمة ' + document.getElementById("C").value;
     window.myLine.update();
 });

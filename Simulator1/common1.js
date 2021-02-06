@@ -147,13 +147,13 @@ window.calculateResult = function() {
 
     if (currentValue == 'C') {
         var result = parseFloat(Q) / parseFloat(U);
-        document.getElementById('C').value = result.toFixed(2);
+        document.getElementById('C').value = result.toFixed(8);
     } else if (currentValue == 'U') {
         var result = parseFloat(Q) / parseFloat(C);
         document.getElementById('U').value = result.toFixed(2);
     } else {
         var result = parseFloat(C) * parseFloat(U);
-        document.getElementById('Q').value = result.toFixed(2);
+        document.getElementById('Q').value = result.toFixed(5);
     }
     if (parseFloat(document.getElementById('U').value) >= parseFloat(document.getElementById('Voltage').value)) {
         alert("فارق الجهد تعدى الحد الأقصى, لا يمكن استخدام هذا المكثف");

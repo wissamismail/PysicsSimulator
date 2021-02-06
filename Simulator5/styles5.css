@@ -14,7 +14,10 @@ body {
 }
 
 div {
+    font-family: 'Droid Arabic Regular';
     padding: 5px;
+    padding-left: 1px;
+    padding-right: 1px;
 }
 
 h2 {

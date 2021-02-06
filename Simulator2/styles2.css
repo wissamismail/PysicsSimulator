@@ -121,7 +121,7 @@ canvas {
 }
 
 .number_input {
-    width: 70px;
+    width: 120px;
     height: 20px;
     padding-right: 10px;
     margin-left: 10px;
@@ -129,7 +129,7 @@ canvas {
 }
 
 .number_materials {
-    width: 100px;
+    width: 120px;
     height: 20px;
     padding-right: 10px;
     margin-left: 10px;
