@@ -83,12 +83,14 @@ var dynamicTable = (function() {
 
 $(document).ready(function(e) {
 
-    var dt = dynamicTable.config('data-table', ['field1', 'field2', 'field3'], ['لحظة القياس', 'فولتية المكثف', 'قيمة التيار المتدفق'], //set to null for field names instead of custom header names
+    var dt = dynamicTable.config('data-table', ['field0', 'field1', 'field2', 'field3'], ['رقم القياس', 'لحظة القياس', 'فولتية المكثف', 'قيمة التيار المتدفق'],
         'لا يوجد أسطر في الجدول ...');
 
+    let rowID = 0;
     $('#btn-append').click(function(e) {
-        disableValue(true);
+        rowID++;
         var data2 = [{
+            field0: rowID,
             field1: document.getElementById("T4").value,
             field2: document.getElementById("u4").value,
             field3: document.getElementById("i4").value,
@@ -98,10 +100,8 @@ $(document).ready(function(e) {
 
     $('#btn-clear').click(function(e) {
         disableValue(false);
+        rowID = 0;
         dt.clear();
-        var x = document.getElementById("myChart");
-        x.style.display = "none";
-
     });
 });
 
@@ -123,7 +123,7 @@ window.calculateResult = function() {
     var I = -E * x / R; */
 
     var ct4 = parseFloat(R4) * parseFloat(C4);
-    document.getElementById('ct4').value = parseFloat(ct4.toFixed(6));
+    document.getElementById('ct4').value = parseFloat(ct4.toFixed(8));
 
     var ex4 = Math.exp(-T4 / ct4);
 
@@ -132,5 +132,5 @@ window.calculateResult = function() {
 
     var i4 = -parseFloat(E4) * ex4 / parseFloat(R4);
 
-    document.getElementById('i4').value = parseFloat(i4.toFixed(6));
+    document.getElementById('i4').value = parseFloat(i4.toFixed(10));
 }

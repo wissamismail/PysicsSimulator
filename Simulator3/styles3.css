@@ -84,9 +84,9 @@ label {
 
 #myform,
 #myChart {
-    min-width: 750px;
-    max-width: 750px;
-    width: 650px;
+    min-width: 850px;
+    max-width: 850px;
+    width: 850px;
 }
 
 canvas {

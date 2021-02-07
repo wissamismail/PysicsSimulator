@@ -83,20 +83,26 @@ var dynamicTable = (function() {
 
 $(document).ready(function(e) {
 
-    var dt = dynamicTable.config('data-table', ['field1', 'field2', 'field3'], ['السعة', 'فارق الجهد', 'الطاقة المخزنة'], //set to null for field names instead of custom header names
+    var dt = dynamicTable.config('data-table', ['field0', 'field1', 'field2', 'field3'], ['رقم القياس', 'السعة', 'فارق الجهد', 'الطاقة المخزنة'],
         'لا يوجد أسطر في الجدول ...');
 
+    let rowID = 0;
     $('#btn-append').click(function(e) {
+        rowID++;
         var data2 = [{
+            field0: rowID,
             field1: document.getElementById("C").value,
             field2: document.getElementById("U").value,
             field3: document.getElementById("E").value,
         }];
         dt.load(data2, true);
+        document.getElementById('C').disabled = true;
     });
 
     $('#btn-clear').click(function(e) {
         dt.clear();
+        rowID = 0;
+        document.getElementById('C').disabled = false;
     });
 
 });

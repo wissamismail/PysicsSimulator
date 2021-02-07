@@ -99,24 +99,26 @@ var dynamicTable = (function() {
 }());
 
 
-var dt = dynamicTable.config('data-table', ['field1', 'field2', 'field3'], ['السعة', 'فارق الجهد', 'الشحنة'], //set to null for field names instead of custom header names
+var dt = dynamicTable.config('data-table', ['field0', 'field1', 'field2', 'field3'], ['إسم المكثف', 'السعة', 'فارق الجهد', 'الشحنة'],
     'لا يوجد أسطر في الجدول ...');
-$(document).ready(function(e) {
-    $('#btn-append').click(function(e) {
-        var data2 = [{
-            field1: document.getElementById("C").value,
-            field2: document.getElementById("U").value,
-            field3: document.getElementById("Q").value,
-        }];
-        dt.load(data2, true);
-        appendFunction()
-    });
 
-    $('#btn-clear').click(function(e) {
-        dt.clear();
-        clearFunction(false)
-    });
+let rowID = 0;
+$('#btn-append').click(function(e) {
+    rowID++;
+    var data2 = [{
+        field0: "المكثف " + rowID,
+        field1: document.getElementById("C").value,
+        field2: document.getElementById("U").value,
+        field3: document.getElementById("Q").value,
+    }];
+    dt.load(data2, true);
+    appendFunction()
+});
 
+$('#btn-clear').click(function(e) {
+    dt.clear();
+    rowID = 0;
+    clearFunction(false)
 });
 
 
@@ -163,13 +165,13 @@ window.calculateResult = function() {
 
     if (currentValue == 'C') {
         var result = parseFloat(Q) / parseFloat(U);
-        document.getElementById('C').value = result.toFixed(2);
+        document.getElementById('C').value = result.toFixed(8);
     } else if (currentValue == 'U') {
         var result = parseFloat(Q) / parseFloat(C);
-        document.getElementById('U').value = result.toFixed(2);
+        document.getElementById('U').value = result.toFixed(6);
     } else {
         var result = parseFloat(C) * parseFloat(U);
-        document.getElementById('Q').value = result.toFixed(2);
+        document.getElementById('Q').value = result.toFixed(8);
     }
 }
 
@@ -198,12 +200,13 @@ document.getElementById('btn-chart').addEventListener('click', function() {
 
     var table = document.getElementById("data-table");
     for (var i = 1, row; row = table.rows[i]; i++) {
-        Ct += 1 / parseFloat(row.cells[0].innerText);
-        Ut += parseFloat(row.cells[1].innerText);
+        Ct += 1 / parseFloat(row.cells[1].innerText);
+        Ut += parseFloat(row.cells[2].innerText);
     }
     Ct = 1 / Ct;
 
     var dataTotal2 = [{
+        field0: 'المكثف المكافئ',
         field1: 'السعة المكافئة',
         field2: 'فارق الجهد المكافئ',
         field3: 'الشحنة المكافئة',
@@ -213,8 +216,9 @@ document.getElementById('btn-chart').addEventListener('click', function() {
     myRow.className = 'rowTotalStyle';
 
     var dataTotal1 = [{
-        field1: Ct.toFixed(2),
-        field2: Ut.toFixed(2),
+        field0: 'Cap eq',
+        field1: Ct.toFixed(8),
+        field2: Ut.toFixed(6),
         field3: Qt,
     }];
     dt.load(dataTotal1, true);

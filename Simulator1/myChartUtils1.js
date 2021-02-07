@@ -48,7 +48,7 @@ var config = {
                 display: true,
                 ticks: {
                     userCallback: function(tick) {
-                        return tick.toString() + 'C';
+                        return tick.toFixed(6).toString() + 'C';
                     },
                     beginAtZero: true
                 },
@@ -79,8 +79,8 @@ document.getElementById('btn-chart').addEventListener('click', function() {
     var table = document.getElementById("data-table");
     var points = [];
     for (var i = 1, row; row = table.rows[i]; i++) {
-        Ulabels.push(row.cells[1].innerText);
-        QData.push(row.cells[2].innerText);
+        Ulabels.push(row.cells[2].innerText);
+        QData.push(row.cells[3].innerText);
     }
     Ulabels.sort((a, b) => a - b);
     QData.sort((a, b) => a - b);

@@ -168,9 +168,9 @@ document.getElementById('btn-chart').addEventListener('click', function() {
     tlabels.push(0);
 
     for (var i = 1, row; row = table.rows[i]; i++) {
-        tlabels.push(row.cells[0].innerText);
-        uData.push(row.cells[1].innerText);
-        iData.push(row.cells[2].innerText);
+        tlabels.push(row.cells[1].innerText);
+        uData.push(row.cells[2].innerText);
+        iData.push(row.cells[3].innerText);
     }
     var ct = document.getElementById("ct4").value;
     var tData = [{ x: ct, y: 0 }, { x: ct * 2, y: 0 }, { x: ct * 3, y: 0 }, { x: ct * 4, y: 0 }, { x: ct * 5, y: 0 }];

@@ -48,7 +48,7 @@ var config = {
                 display: true,
                 ticks: {
                     userCallback: function(tick) {
-                        return tick.toString() + 'F';
+                        return tick.toFixed(10).toString() + 'F';
                     },
                     beginAtZero: true
                 },
@@ -67,7 +67,10 @@ window.onload = function() {
 };
 
 document.getElementById('btn-chart').addEventListener('click', function() {
-
+    if (document.getElementById("mydistanceCapacity").checked == false) {
+        alert("لا يمكن تحديث الرسم في حال عدم تثبيت قيمة المسافة")
+        return;
+    };
     config.data.datasets.splice(0, 1);
     var A2labels = [];
     var C2Data = [];
@@ -77,8 +80,8 @@ document.getElementById('btn-chart').addEventListener('click', function() {
         y: 0
     }];
     for (var i = 1, row; row = table.rows[i]; i++) {
-        A2labels.push(row.cells[2].innerText);
-        C2Data.push(row.cells[0].innerText);
+        A2labels.push(row.cells[3].innerText);
+        C2Data.push(row.cells[1].innerText);
     }
     A2labels.sort((a, b) => a - b);
     C2Data.sort((a, b) => a - b);

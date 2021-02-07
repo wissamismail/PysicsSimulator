@@ -99,25 +99,28 @@ var dynamicTable = (function() {
 }());
 
 
-var dt = dynamicTable.config('data-table', ['field1', 'field2', 'field3'], ['السعة', 'فارق الجهد', 'الشحنة'], //set to null for field names instead of custom header names
+var dt = dynamicTable.config('data-table', ['field0', 'field1', 'field2', 'field3'], ['إسم المكثف', 'السعة', 'فارق الجهد', 'الشحنة'],
     'لا يوجد أسطر في الجدول ...');
-$(document).ready(function(e) {
-    $('#btn-append').click(function(e) {
-        var data2 = [{
-            field1: document.getElementById("C").value,
-            field2: document.getElementById("U").value,
-            field3: document.getElementById("Q").value,
-        }];
-        dt.load(data2, true);
-        appendFunction()
-    });
 
-    $('#btn-clear').click(function(e) {
-        dt.clear();
-        clearFunction(false)
-    });
-
+let rowID = 0;
+$('#btn-append').click(function(e) {
+    rowID++;
+    var data2 = [{
+        field0: "المكثف " + rowID,
+        field1: document.getElementById("C").value,
+        field2: document.getElementById("U").value,
+        field3: document.getElementById("Q").value,
+    }];
+    dt.load(data2, true);
+    appendFunction()
 });
+
+$('#btn-clear').click(function(e) {
+    dt.clear();
+    rowID = 0;
+    clearFunction(false)
+});
+
 
 function appendFunction() {
     if (document.getElementById('U').disabled != true) {
@@ -197,10 +200,11 @@ document.getElementById('btn-chart').addEventListener('click', function() {
 
     var table = document.getElementById("data-table");
     for (var i = 1, row; row = table.rows[i]; i++) {
-        Ct += parseFloat(row.cells[0].innerText);
-        Qt += parseFloat(row.cells[2].innerText);
+        Ct += parseFloat(row.cells[1].innerText);
+        Qt += parseFloat(row.cells[3].innerText);
     }
     var dataTotal2 = [{
+        field0: 'المكثف المكافئ',
         field1: 'السعة المكافئة',
         field2: 'فارق الجهد المكافئ',
         field3: 'الشحنة المكافئة',
@@ -210,9 +214,10 @@ document.getElementById('btn-chart').addEventListener('click', function() {
     myRow.className = 'rowTotalStyle';
 
     var dataTotal1 = [{
-        field1: Ct.toFixed(2),
+        field0: 'Cap eq',
+        field1: Ct.toFixed(8),
         field2: Ut,
-        field3: Qt.toFixed(2),
+        field3: Qt.toFixed(8),
     }];
     dt.load(dataTotal1, true);
     var myRow = table.rows[table.rows.length - 1];

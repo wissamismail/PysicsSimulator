@@ -95,21 +95,26 @@ $('#my-materials-combo').on('change', function(e) {
 
 $(document).ready(function(e) {
 
-    var dt = dynamicTable.config('data-table', ['field1', 'field2', 'field3'], ['السعة', 'المسافة', 'المساحة'], //set to null for field names instead of custom header names
+    var dt = dynamicTable.config('data-table', ['field0', 'field1', 'field2', 'field3'], ['رقم القياس', 'السعة', 'المسافة', 'المساحة'], //set to null for field names instead of custom header names
         'لا يوجد أسطر في الجدول ...');
 
-
+    let rowID = 0;
     $('#btn-append').click(function(e) {
+        rowID++;
         var data2 = [{
+            field0: rowID,
             field1: document.getElementById("C2").value,
             field2: document.getElementById("d2").value,
             field3: document.getElementById("A2").value,
         }];
         dt.load(data2, true);
+        document.getElementById('fixDistance').disabled = true;
     });
 
     $('#btn-clear').click(function(e) {
         dt.clear();
+        rowID = 0;
+        document.getElementById('fixDistance').disabled = false;
     });
 
 });
@@ -159,7 +164,7 @@ window.calculateResult = function() {
     var Em = document.getElementById('Em_number').value;
     if (currentValue == 'C2') {
         var result = Em * parseFloat(A) / parseFloat(d);
-        document.getElementById('C2').value = result.toFixed(8);
+        document.getElementById('C2').value = result.toFixed(10);
     } else if (currentValue == 'd2') {
         var result = Em * parseFloat(A) / parseFloat(C);
         document.getElementById('d2').value = result.toFixed(2);

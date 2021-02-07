@@ -84,21 +84,26 @@ var dynamicTable = (function() {
 
 $(document).ready(function(e) {
 
-    var dt = dynamicTable.config('data-table', ['field1', 'field2', 'field3'], ['السعة', 'فارق الجهد', 'الشحنة'], //set to null for field names instead of custom header names
+    var dt = dynamicTable.config('data-table', ['field0', 'field1', 'field2', 'field3'], ['رقم القياس', 'السعة', 'فارق الجهد', 'الشحنة'],
         'لا يوجد أسطر في الجدول ...');
 
-
+    let rowID = 0;
     $('#btn-append').click(function(e) {
+        rowID++;
         var data2 = [{
+            field0: rowID,
             field1: document.getElementById("C").value,
             field2: document.getElementById("U").value,
             field3: document.getElementById("Q").value,
         }];
         dt.load(data2, true);
+        document.getElementById('Capacity').disabled = true;
     });
 
     $('#btn-clear').click(function(e) {
         dt.clear();
+        rowID = 0;
+        document.getElementById('Capacity').disabled = false;
     });
 
 });
@@ -153,7 +158,7 @@ window.calculateResult = function() {
         document.getElementById('U').value = result.toFixed(2);
     } else {
         var result = parseFloat(C) * parseFloat(U);
-        document.getElementById('Q').value = result.toFixed(5);
+        document.getElementById('Q').value = result.toFixed(6);
     }
     if (parseFloat(document.getElementById('U').value) >= parseFloat(document.getElementById('Voltage').value)) {
         alert("فارق الجهد تعدى الحد الأقصى, لا يمكن استخدام هذا المكثف");
