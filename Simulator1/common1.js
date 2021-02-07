@@ -1,4 +1,3 @@
-//file:///F:/Projects/PysicsSimulator/Simulator1/index.html
 var dynamicTable = (function() {
 
     var _tableId, _table,
@@ -83,7 +82,6 @@ var dynamicTable = (function() {
 }());
 
 $(document).ready(function(e) {
-
     var dt = dynamicTable.config('data-table', ['field0', 'field1', 'field2', 'field3'], ['رقم القياس', 'السعة', 'فارق الجهد', 'الشحنة'],
         'لا يوجد أسطر في الجدول ...');
 

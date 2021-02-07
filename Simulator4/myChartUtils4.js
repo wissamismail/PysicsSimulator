@@ -86,6 +86,7 @@ var configi = {
         }]
     },
     options: {
+
         responsive: true,
         title: {
             display: true,

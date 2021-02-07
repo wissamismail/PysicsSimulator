@@ -19,6 +19,7 @@ div {
 
 h2 {
     margin-bottom: 10px;
+    text-align: center;
 }
 
 .button {
@@ -64,6 +65,11 @@ label {
     font-family: Arial;
 }
 
+.labelFields {
+    padding: 15px;
+    font-family: tahoma;
+}
+
 .label-calculate {
     padding-right: 0px;
     padding-left: 2px;
@@ -84,9 +90,8 @@ label {
 
 #myform,
 #myChart {
-    min-width: 850px;
-    max-width: 850px;
-    width: 850px;
+    min-width: 550px;
+    width: 550px;
 }
 
 canvas {

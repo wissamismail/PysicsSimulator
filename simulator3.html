@@ -14,36 +14,38 @@
     <div id="main-container">
         <h2>الطاقة الكهربائية المخزنة في المكثف</h2>
 
-        <div class="flex-container">
-            <div id="myform" class="flex-child">
+        <div id="myform">
 
-                <div id="my-labels">
-                    <label for="C">السعة C(F)</label>
-                    <label for="U">&nbsp  فارق الجهد U(V)</label>
-                    <label for="Q">الشحنة Q(C)</label>
-                    <label for="t">المدة t(s)</label>
-                    <label for="E">&nbsp الطاقة المخزنة E(J)</label>
-                    <label for="P">معدل القدرة P(W)</label>
-                </div>
-
-                <div id="my-inputs">
-                    <input class="number_input" type="number" id="C" name="C" min="0" value="0.000001" step="1E-6" placeholder="input">
-                    <input class="number_input" type="number" id="U" name="U" min="0" value="30" placeholder="calculated" onchange="calculateQEP()">
-                    <input class="number_input" type="number" id="Q" name="Q" min="0" value="0.00001" step="1E-5" placeholder="calculated" onchange="calculateUEP()">
-                    <input class="number_input" type="number" id="t" name="t" min="1" value="1" placeholder="input" onchange="calculateP()">
-                    <input class="number_input" type="number" id="E" name="E" min="0" value="" placeholder="calculated" disabled>
-                    <input class="number_input" type="number" id="P" name="P" min="0" value="" placeholder="calculated" disabled>
-                </div>
-
-                <div id="my-buttons">
-                    <button id="btn-append" class="button"><span>إضافة سطر</span></button>&nbsp;
-                    <button id="btn-clear" class="button">تصفير</button>&nbsp;
-                    <button id="btn-chart" class="button">تحديث الرسم البياني</button>&nbsp;
-                </div>
-
-                <table id="data-table"></table>
+            <div id="my-labels">
+                <label for="C" class="labelFields">السعة C(F)</label>
+                <label for="U" class="labelFields">&nbsp  فارق الجهد U(V)</label>
+                <label for="Q" class="labelFields">الشحنة Q(C)</label>
             </div>
-            <div id="myChart" class="flex-child">
+
+            <div id="my-inputs">
+                <input class="number_input" type="number" id="C" name="C" min="0" value="0.000001" step="1E-6" placeholder="input">
+                <input class="number_input" type="number" id="U" name="U" min="0" value="30" placeholder="calculated" onchange="calculateQEP()">
+                <input class="number_input" type="number" id="Q" name="Q" min="0" value="0.00001" step="1E-5" placeholder="calculated" onchange="calculateUEP()"><br>
+            </div>
+            <div id="my-labels">
+                <label for="t" class="labelFields">المدة t(s)</label>
+                <label for="E" class="labelFields">&nbsp الطاقة المخزنة E(J)</label>
+                <label for="P" class="labelFields">معدل القدرة P(W)</label>
+            </div>
+
+            <div id="my-inputs">
+                <input class="number_input" type="number" id="t" name="t" min="1" value="1" placeholder="input" onchange="calculateP()">
+                <input class="number_input" type="number" id="E" name="E" min="0" value="" placeholder="calculated" disabled>
+                <input class="number_input" type="number" id="P" name="P" min="0" value="" placeholder="calculated" disabled><br><br>
+            </div>
+            <div id="my-buttons">
+                <button id="btn-append" class="button"><span>إضافة سطر</span></button>&nbsp;
+                <button id="btn-clear" class="button">تصفير</button>&nbsp;
+                <button id="btn-chart" class="button">تحديث الرسم البياني</button>&nbsp;
+            </div>
+
+            <table id="data-table"></table>
+            <div id="myChart">
                 <canvas id="canvasChart"></canvas>
                 <br>
             </div>

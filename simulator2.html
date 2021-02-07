@@ -14,12 +14,10 @@
     <div id="main-container">
         <h2>العلاقة بين السعة ومساحة اللوحين والمسافة بينهما في المكثف المتوازي اللوحين</h2>
         <!--C=Em * A/d-->
-        <div class="flex-container">
-            <div id="myform" class="flex-child">
-
-                <div action="/action_page.php">
-                    <label for="my-materials">إختر المادة:</label>
-                    <select name="my-materials-combo" id="my-materials-combo">
+        <div id="myform">
+            <div action="/action_page.php">
+                <label for="my-materials">إختر المادة:</label>
+                <select name="my-materials-combo" id="my-materials-combo">
                       <option value=8.85E-12>فراغ</option>
                       <option value=9.74E-12>الستايروفوم</option>
                       <option value=1.86E-11>تفلون</option>
@@ -34,44 +32,47 @@
                       <option value=7.08025E-10>الماء</option> 
                       <option value="1">مادة أخرى</option>    
                     </select>
-                    <label for="my_m">سماحية العازل &#8455;m:</label>
-                    <input class="number_materials" type="number" id="Em_number" min="0" value="8.85E-12" step="1E-11" disabled>
-                </div>
+                <label for="my_m">سماحية العازل &#8455;m:</label>
+                <input class="number_materials" type="number" id="Em_number" min="0" value="8.85E-12" step="1E-11" disabled>
+            </div>
 
-                <div id="my-Constraints">
-                    <input type="checkbox" id="myCheckEr" onclick="myCheckBoxEr()">
-                    <label for="myCheck">إحتساب السماحية عبر إدخال ثابت العزل &#8455;ᵣ</label>
-                    <input class="number_materials" type="number" id="Er_number" min="1" value="1" step="1e-11" onchange="calcEm()" hidden><br><br>
-                </div>
-                <div id="my-distance">
-                    <input type="checkbox" id="mydistanceCapacity" onclick="mydistanceFunction()">
-                    <label for="myCheck">المسافة  ثابتة</label>
-                    <input class="number_input2" type="number" id="fixDistance" min="0" value="0.01" step="0.01" onchange="synchDistance()" hidden><br><br>
-                </div>
-                <div id="my-labels">
-                    <label for="C2">السعة C(F)</label>
-                    <label for="d2">المسافة d(m)</label>
-                    <label for="A2">المساحة A(m²)</label>
-                </div>
+            <div id="my-Constraints">
+                <input type="checkbox" id="myCheckEr" onclick="myCheckBoxEr()">
+                <label for="myCheck">إحتساب السماحية عبر إدخال ثابت العزل &#8455;ᵣ</label>
+                <input class="number_materials" type="number" id="Er_number" min="1" value="1" step="1e-11" onchange="calcEm()" hidden>
+            </div>
+            <div id="my-distance">
+                <input type="checkbox" id="mydistanceCapacity" onclick="mydistanceFunction()">
+                <label for="myCheck">المسافة  ثابتة</label>
+                <input class="number_input2" type="number" id="fixDistance" min="0" value="0.01" step="0.01" onchange="synchDistance()" hidden>
+            </div>
+            <div id="my-labels">
+                <label for="C2" class="labelFields">السعة C(F)</label>
+                <label for="d2" class="labelFields">المسافة d(m)</label>
+                <label for="A2" class="labelFields">المساحة A(m²)</label>
+            </div>
 
-                <div id="my-inputs">
-                    <input class="number_input" type="number" id="C2" name="C2" min="0" value="0.000001" step="1E-6" onchange="calculateResult()">
-                    <input class="number_input" type="number" id="d2" name="d2" min="0" value="0.01" step="0.01" onchange="calculateResult()">
-                    <input class="number_input" type="number" id="A2" name="A2" min="0" value="0.0001" step="0.0001" onchange="calculateResult()" readonly>
-                </div>
-                <div id="my-radios">
-                    <label for="male" class="label-calculate">إحتساب</label>
-                    <input type="radio" class="radio_input" id="radio-C2" onclick="handleClick(this);" name="radio3" value="C2">
-                    <input type="radio" class="radio_input" id="radio-d2" onclick="handleClick(this);" name="radio3" value="d2">
-                    <input type="radio" class="radio_input" id="radio-A2" onclick="handleClick(this);" name="radio3" value="A2" checked>
-                </div>
-                <div id="my-buttons">
-                    <button id="btn-append" class="button"><span>إضافة سطر</span></button>&nbsp;
-                    <button id="btn-clear" class="button">تصفير</button>&nbsp;
-                    <button id="btn-chart" class="button">تحديث الرسم البياني</button>&nbsp;
-                </div>
+            <div id="my-inputs">
+                <input class="number_input" type="number" id="C2" name="C2" min="0" value="0.000001" step="1E-6" onchange="calculateResult()">
+                <input class="number_input" type="number" id="d2" name="d2" min="0" value="0.01" step="0.01" onchange="calculateResult()">
+                <input class="number_input" type="number" id="A2" name="A2" min="0" value="0.0001" step="0.0001" onchange="calculateResult()" readonly>
+            </div>
+            <div id="my-radios">
+                <label for="male" class="label-calculate">إحتساب</label>
+                <input type="radio" class="radio_input" id="radio-C2" onclick="handleClick(this);" name="radio3" value="C2">
+                <input type="radio" class="radio_input" id="radio-d2" onclick="handleClick(this);" name="radio3" value="d2">
+                <input type="radio" class="radio_input" id="radio-A2" onclick="handleClick(this);" name="radio3" value="A2" checked>
+            </div>
+            <div id="my-buttons">
+                <button id="btn-append" class="button"><span>إضافة سطر</span></button>&nbsp;
+                <button id="btn-clear" class="button">تصفير</button>&nbsp;
+                <button id="btn-chart" class="button">تحديث الرسم البياني</button>&nbsp;
+            </div>
 
-                <table id="data-table"></table>
+            <table id="data-table"></table>
+
+            <div id="myimage">
+                <img src="Simulator2/simulator2.png" width="400">
             </div>
             <div id="myChart" class="flex-child">
                 <canvas id="canvasChart"></canvas>
