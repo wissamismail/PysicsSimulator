@@ -114,13 +114,13 @@ window.calculateResult = function() {
 
     if (currentValue == 'C') {
         var result = parseFloat(Q) / parseFloat(U);
-        document.getElementById('C').value = result.toFixed(8);
+        document.getElementById('C').value = result.toFixed(10);
     } else if (currentValue == 'U') {
         var result = parseFloat(Q) / parseFloat(C);
         document.getElementById('U').value = result.toFixed(2);
     } else {
         var result = parseFloat(C) * parseFloat(U);
-        document.getElementById('Q').value = result.toFixed(5);
+        document.getElementById('Q').value = result.toFixed(8);
     }
 }
 
@@ -131,9 +131,9 @@ function calculateUEP() {
     var result1 = Q / C;
     document.getElementById('U').value = result1.toFixed(2);
     var result2 = (Q * Q) / (C * 2);
-    document.getElementById('E').value = result2.toFixed(5);
+    document.getElementById('E').value = result2.toFixed(8);
     var result3 = result2 / t;
-    document.getElementById('P').value = result3.toFixed(5);
+    document.getElementById('P').value = result3.toFixed(8);
 }
 
 function calculateQEP() {
@@ -141,16 +141,16 @@ function calculateQEP() {
     var U = parseFloat(document.getElementById('U').value);
     var t = parseFloat(document.getElementById('t').value);
     var result1 = parseFloat(C) * parseFloat(U);
-    document.getElementById('Q').value = result1.toFixed(5);
+    document.getElementById('Q').value = result1.toFixed(8);
     var result2 = (C * U * U) / 2;
-    document.getElementById('E').value = result2.toFixed(5);
+    document.getElementById('E').value = result2.toFixed(8);
     var result3 = result2 / t;
-    document.getElementById('P').value = result3.toFixed(5);
+    document.getElementById('P').value = result3.toFixed(8);
 }
 
 function calculateP() {
     var t = parseFloat(document.getElementById('t').value);
     var E = parseFloat(document.getElementById('E').value);
     var result3 = E / t;
-    document.getElementById('P').value = result3.toFixed(5);
+    document.getElementById('P').value = result3.toFixed(8);
 }

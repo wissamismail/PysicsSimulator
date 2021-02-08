@@ -172,7 +172,7 @@ document.getElementById('btn-chart').addEventListener('click', function() {
 
     var ct = document.getElementById("ct4").value;
     var tData = [{ x: ct, y: 0 }, { x: ct * 2, y: 0 }, { x: ct * 3, y: 0 }, { x: ct * 4, y: 0 }, { x: ct * 5, y: 0 }];
-
+    calculateTo(ct);
     newValues1 = calculateValues(1);
     uData.push(newValues1[0]);
     iData.push(newValues1[1]);
@@ -233,9 +233,6 @@ document.getElementById('btn-chart').addEventListener('click', function() {
         showLine: false // no line shown
     }
 
-    //['0', '1Ƭ', '2Ƭ', '3Ƭ', '4Ƭ', '5Ƭ']
-
-
     configu.data.labels = tlabels;
     configu.data.datasets.push(newDatasetu);
     configu.data.datasets.push(newDatasetCT);
@@ -245,3 +242,34 @@ document.getElementById('btn-chart').addEventListener('click', function() {
     configi.data.datasets.push(newDatasetCT);
     window.myLineI.update();
 });
+
+function calculateTo(To) {
+    var list = document.getElementById("Tos");
+    list.hidden = false;
+    list.innerHTML = "";
+
+    var x = document.createElement("LI");
+    var t = document.createTextNode("1Ƭ(s) = " + To);
+    x.appendChild(t);
+    list.appendChild(x);
+
+    var x = document.createElement("LI");
+    var t = document.createTextNode("2Ƭ(s) = " + 2 * To);
+    x.appendChild(t);
+    list.appendChild(x);
+
+    var x = document.createElement("LI");
+    var t = document.createTextNode("3Ƭ(s) = " + 3 * To);
+    x.appendChild(t);
+    list.appendChild(x);
+
+    var x = document.createElement("LI");
+    var t = document.createTextNode("4Ƭ(s) = " + 4 * To);
+    x.appendChild(t);
+    list.appendChild(x);
+
+    var x = document.createElement("LI");
+    var t = document.createTextNode("5Ƭ(s) = " + 5 * To);
+    x.appendChild(t);
+    list.appendChild(x);
+}
