@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Droid Arabic Regular';
-    src: url("F:/Projects/PysicsSimulatorProject/Common/Fonts/DroidKufi-Regular.ttf");
+    src: url("../Common/HacenTunisiaBold_0.ttf");
     font-weight: normal;
     font-style: normal;
 }
@@ -63,10 +63,6 @@ h2 {
     right: 0;
 }
 
-label {
-    font-family: tahoma;
-}
-
 .label-calculate {
     padding-right: 0px;
     padding-left: 2px;
@@ -107,6 +103,13 @@ canvas {
 
 .flex-child:first-child {
     margin-right: 10px;
+}
+
+.block {
+    padding-right: 22px;
+    padding-left: 10px;
+    padding-bottom: 0px;
+    padding-top: 0px;
 }
 
 #myform,
@@ -165,7 +168,7 @@ canvas {
 }
 
 #data-table {
-    font-family: tahoma;
+    font-family: Droid Arabic Regular;
 }
 
 #data-table thead td {

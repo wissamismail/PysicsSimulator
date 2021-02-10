@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Droid Arabic Regular';
-    src: url("F:/Projects/PysicsSimulatorProject/Common/Fonts/DroidKufi-Regular.ttf");
+    src: url("../Common/HacenTunisiaBold_0.ttf");
     font-weight: normal;
     font-style: normal;
 }
@@ -47,6 +47,10 @@ h2 {
     transition: 0.5s;
 }
 
+#Em_number {
+    margin-right: 10px;
+}
+
 .button span:after {
     content: '\00bb';
     position: absolute;
@@ -67,12 +71,16 @@ h2 {
 
 label {
     padding: 8px;
-    font-family: tahoma;
 }
 
 .labelFields {
-    padding: 15px;
-    font-family: tahoma;
+    padding-right: 35px;
+    padding-bottom: 0px;
+}
+
+#my-labels {
+    padding-top: 10px;
+    padding-bottom: 0px;
 }
 
 .label-calculate {
@@ -105,10 +113,6 @@ canvas {
     -ms-user-select: none;
 }
 
-.styled {
-    font-family: tahoma;
-}
-
 .number_input {
     height: 30px;
     width: 130px;
@@ -126,10 +130,6 @@ canvas {
 
 .calc {
     margin-top: 25px;
-}
-
-#data-table {
-    font-family: tahoma;
 }
 
 #data-table thead td {

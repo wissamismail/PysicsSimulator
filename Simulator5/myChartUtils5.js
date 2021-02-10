@@ -254,22 +254,22 @@ function calculateTo(To) {
     list.appendChild(x);
 
     var x = document.createElement("LI");
-    var t = document.createTextNode("2Ƭ(s) = " + 2 * To);
+    var t = document.createTextNode("2Ƭ(s) = " + (To * 2).toFixed(6));
     x.appendChild(t);
     list.appendChild(x);
 
     var x = document.createElement("LI");
-    var t = document.createTextNode("3Ƭ(s) = " + 3 * To);
+    var t = document.createTextNode("3Ƭ(s) = " + (To * 4).toFixed(6));
     x.appendChild(t);
     list.appendChild(x);
 
     var x = document.createElement("LI");
-    var t = document.createTextNode("4Ƭ(s) = " + 4 * To);
+    var t = document.createTextNode("4Ƭ(s) = " + (To * 4).toFixed(6));
     x.appendChild(t);
     list.appendChild(x);
 
     var x = document.createElement("LI");
-    var t = document.createTextNode("5Ƭ(s) = " + 5 * To);
+    var t = document.createTextNode("5Ƭ(s) = " + (To * 5).toFixed(6));
     x.appendChild(t);
     list.appendChild(x);
 }
