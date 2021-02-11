@@ -34,6 +34,7 @@ h2 {
     background-color: #008CBA;
     transition: all 0.5s;
     cursor: pointer;
+    border-radius: 5px;
 }
 
 .button span {
