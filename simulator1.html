@@ -10,18 +10,23 @@
     <link rel="stylesheet" type="text/css" href="Simulator1/styles1.css">
 </head>
 
-<body direction: rtl;>
+<body>
+
     <div id="main-container">
-        <h2>العلاقة بين السعة والشحنة وفارق الجهد في المكثف</h2>
+        <div id="myHeader">
+            <label id="labelHeader"><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;العلاقة بين السعة والشحنة وفارق الجهد في المكثف</label>
+        </div>
 
         <div id="myform">
 
             <div id="my-Constraints">
                 <input type="checkbox" id="myCheckCapacity" onclick="myCheckBoxFunction()">
                 <label for="myCheck">مكثف بسعة ثابتة</label>
-                <input class="number_input2" type="number" id="Capacity" min="0" value="0.000001" step="1E-6" onchange="synchCapacity()" hidden><br><br>
-                <label for="myCheck">فارق الجهد الأقصى</label>
-                <input class="number_input2" type="number" id="Voltage" min="0" value="100">
+                <input class="number_input" type="number" id="Capacity" min="0" value="0.000001" step="1E-6" onchange="synchCapacity()" hidden>
+                <hr>
+                <label for="myCheck">فارق الجهد الأقصى:</label>
+                <input class="number_input" type="number" id="Voltage" min="0" value="100">
+                <hr>
             </div>
             <div id="my-labels">
                 <label for="C">السعة C(F)</label>
@@ -36,10 +41,11 @@
             </div>
             <div id="my-radios">
                 <label for="male" class="label-calculate">إحتساب</label>
-                <input type="radio" class="radio_input" id="radio-C" onclick="handleClick(this);" name="radio3" value="C">
-                <input type="radio" class="radio_input" id="radio-U" onclick="handleClick(this);" name="radio3" value="U">
-                <input type="radio" class="radio_input" id="radio-Q" onclick="handleClick(this);" name="radio3" value="Q" checked>
+                <input type="radio" class="radio_input" style="margin-right: 20px;" id="radio-C" onclick="handleClick(this);" name="radio3" value="C">
+                <input type="radio" class="radio_input" style="margin-right: 45px;" id="radio-U" onclick="handleClick(this);" name="radio3" value="U">
+                <input type="radio" class="radio_input" style="margin-right: 45px;" id="radio-Q" onclick="handleClick(this);" name="radio3" value="Q" checked>
             </div>
+            <hr>
             <div id="my-buttons">
                 <button id="btn-append" class="button"><span>إضافة سطر</span></button>&nbsp;
                 <button id="btn-clear" class="button">تصفير</button>&nbsp;
@@ -47,6 +53,7 @@
             </div>
 
             <table id="data-table"></table>
+
             <div id="myChart">
                 <canvas id="canvasChart"></canvas>
                 <br>

@@ -33,19 +33,21 @@
                       <option value="1">مادة أخرى</option>    
                     </select><br>
             </div>
+            <hr>
             <label for="my_m">سماحية العازل &#8455;m:</label>
             <input class="number_materials" type="number" id="Em_number" min="0" value="8.85E-12" step="1E-11" disabled>
-
+            <hr>
             <div id="my-Constraints">
                 <input type="checkbox" id="myCheckEr" onclick="myCheckBoxEr()">
                 <label for="myCheck">إحتساب السماحية عبر إدخال ثابت العزل &#8455;ᵣ</label><br>
-                <input class="number_materials" type="number" id="Er_number" min="1" value="1" step="1e-11" onchange="calcEm()" hidden style="margin-right: 147px;">
+                <input class="number_materials" type="number" id="Er_number" min="1" value="1" step="1e-11" onchange="calcEm()" hidden style="margin-right: 165px;">
             </div>
             <div id="my-distance">
                 <input type="checkbox" id="mydistanceCapacity" onclick="mydistanceFunction()">
                 <label for="myCheck">المسافة  ثابتة</label>
                 <input class="number_materials" type="number" id="fixDistance" min="0" value="0.01" step="0.01" onchange="synchDistance()" style="margin-right: 10px;">
             </div>
+            <hr>
             <div id="my-labels">
                 <label for="C2" class="labelFields">السعة C(F)</label>
                 <label for="d2" class="labelFields">المسافة d(m)</label>
@@ -59,10 +61,11 @@
             </div>
             <div id="my-radios">
                 <label for="male" class="label-calculate">إحتساب</label>
-                <input type="radio" class="radio_input" id="radio-C2" onclick="handleClick(this);" name="radio3" value="C2">
-                <input type="radio" class="radio_input" id="radio-d2" onclick="handleClick(this);" name="radio3" value="d2">
-                <input type="radio" class="radio_input" id="radio-A2" onclick="handleClick(this);" name="radio3" value="A2" checked>
+                <input type="radio" class="radio_input" style="margin-right: 30px;" id="radio-C2" onclick="handleClick(this);" name="radio3" value="C2">
+                <input type="radio" class="radio_input" style="margin-right: 40px;" id="radio-d2" onclick="handleClick(this);" name="radio3" value="d2">
+                <input type="radio" class="radio_input" style="margin-right: 40px;" id="radio-A2" onclick="handleClick(this);" name="radio3" value="A2" checked>
             </div>
+            <hr>
             <div id="my-buttons">
                 <button id="btn-append" class="button"><span>إضافة سطر</span></button>&nbsp;
                 <button id="btn-clear" class="button">تصفير</button>&nbsp;

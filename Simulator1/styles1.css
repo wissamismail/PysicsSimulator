@@ -1,27 +1,71 @@
 @font-face {
     font-family: 'Droid Arabic Regular';
     src: url("../Common/HacenTunisiaBold_0.ttf");
-    font-weight: normal;
-    font-style: normal;
 }
 
-html,
 body {
     direction: rtl;
-    padding: 5px;
+    padding: 1px;
     font-family: 'Droid Arabic Regular';
-    font-size: 100%;
+}
+
+#main-container {
+    overflow: auto;
+    min-width: 600px;
+    max-width: 600px;
+    width: 600px;
+    padding: 0px;
+    background-image: url('../Common/background.png');
 }
 
 div {
     padding: 5px;
-    padding-left: 1px;
-    padding-right: 1px;
+    padding-right: 20;
 }
 
-h2 {
-    margin-bottom: 10px;
+#myHeader {
+    width: 600px;
+    height: 150px;
+    background-image: url('../Common/header.png');
+    background-repeat: no-repeat;
+    background-size: auto;
+    padding: 0px;
+    display: inline-block;
+}
+
+#labelHeader {
+    padding-right: 20px;
+    font-size: larger;
+    color: rgb(255, 255, 255);
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    opacity: 1;
+}
+
+input[type=number]::-webkit-inner-spin-button:before,
+input[type=number]::-webkit-inner-spin-button:after {
+    background: rgb(216, 24, 24);
+}
+
+.number_input {
+    height: 22px;
+    width: 120px;
+    padding-right: 10px;
+    margin-left: 10px;
     text-align: center;
+    border-radius: 5px;
+    background: rgb(252, 250, 250);
+    border: solid 1px;
+    opacity: 1;
+    line-height: 30px;
+}
+
+.number-wrapper {
+    color: blue;
+    content: "\25B2";
+    margin-top: 1px;
 }
 
 .button {
@@ -32,7 +76,7 @@ h2 {
     text-decoration: none;
     border: none;
     text-align: center;
-    background-color: #008CBA;
+    background-color: rgb(83, 138, 189);
     transition: all 0.5s;
     cursor: pointer;
     border-radius: 5px;
@@ -65,6 +109,8 @@ h2 {
 
 label {
     padding: 14px;
+    font-size: larger;
+    color: rgb(25, 60, 90);
 }
 
 #my-labels {
@@ -80,19 +126,22 @@ label {
 .radio_input {
     width: 40px;
     height: 20px;
-    margin-left: 35px;
+    margin-left: 60px;
     margin-right: 0px;
 }
 
-#main-container {
-    overflow: auto;
-    border: 1px solid black;
-    background-color: rgb(243, 248, 250);
+input[type=checkbox] {
+    height: 20px;
+    width: 20px;
+    border-radius: 5px;
 }
 
-#myform,
+hr {
+    border-top: 1px solid rgb(138, 176, 214);
+    margin: 15px;
+}
+
 #myChart {
-    min-width: 500px;
     width: 500px;
 }
 
@@ -100,20 +149,6 @@ canvas {
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
-}
-
-.number_input {
-    height: 20px;
-    width: 100px;
-    text-align: center;
-}
-
-.number_input2 {
-    height: 15px;
-    width: 100px;
-    padding-right: 10px;
-    margin-left: 10px;
-    text-align: center;
 }
 
 #Voltage {
@@ -124,13 +159,23 @@ canvas {
     margin-top: 25px;
 }
 
+#data-table {
+    border-collapse: collapse;
+}
+
 #data-table thead td {
-    background-color: #8CCCF1;
+    background-color: rgb(55, 124, 189);
+    color: rgb(255, 255, 255);
     font-weight: bold;
+    text-align: center;
 }
 
 #data-table td {
     border: 1px solid #466E85;
-    width: 100px;
+    width: 110px;
     padding: 2px;
+}
+
+tr:nth-child(even) {
+    background-color: white;
 }
