@@ -1,11 +1,15 @@
+Chart.defaults.global.defaultFontColor = 'rgb(25, 60, 90)';
+Chart.defaults.global.defaultFontfamil = 'Droid Arabic Regular';
+Chart.defaults.global.defaultFontSize = 14;
+
 var config = {
     type: 'line',
     data: {
         labels: ['0', '20', '40', '60', '80'],
         datasets: [{
             label: 'الشحنة',
-            backgroundColor: 'Coral',
-            borderColor: 'Coral',
+            backgroundColor: 'rgb(229, 166, 25)',
+            borderColor: 'rgb(229, 166, 25)',
             data: [{ x: 0, y: 0 }, { x: 20, y: 2e-11 }, { x: 40, y: 4e-11 }, { x: 60, y: 6e-11 }, { x: 80, y: 8e-11 }],
             fill: false,
         }]
@@ -90,8 +94,8 @@ document.getElementById('btn-chart').addEventListener('click', function() {
     }
     var newDataset = {
         label: 'السعة',
-        backgroundColor: 'Coral',
-        borderColor: 'Coral',
+        backgroundColor: 'rgb(229, 166, 25)',
+        borderColor: 'rgb(229, 166, 25)',
         data: points,
         fill: false
     };

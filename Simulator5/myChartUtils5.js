@@ -1,17 +1,21 @@
+Chart.defaults.global.defaultFontColor = 'rgb(25, 60, 90)';
+Chart.defaults.global.defaultFontfamil = 'Droid Arabic Regular';
+Chart.defaults.global.defaultFontSize = 14;
+
 var configu = {
     type: 'line',
     data: {
         labels: 'V(node1)',
         datasets: [{
             label: 'فولتية المكثف  بالنسبة للزمن',
-            backgroundColor: 'SlateBlue',
-            borderColor: 'SlateBlue',
+            backgroundColor: 'rgb(229, 166, 25)',
+            borderColor: 'rgb(229, 166, 25)',
             data: [{ x: 0, y: "10.000000" }, { x: "0.005", y: "7.967035" }, { x: "0.022", y: "3.678794" }, { x: "0.044000", y: "1.353353" }, { x: "0.066000", y: "0.497871" }, { x: "0.088000", y: "0.183156" }, { x: "0.110000", y: "0.067379" }],
             fill: false,
         }, {
             label: 'مخرجات ثابت الزمن',
-            backgroundColor: 'Violet',
-            borderColor: 'Violet',
+            backgroundColor: 'rgb(0, 162, 232)',
+            borderColor: 'rgb(0, 162, 232)',
             data: [{ x: 0.022, y: 0 }, { x: 0.044, y: 0 }, { x: 0.066, y: 0 }, { x: 0.088, y: 0 }, { x: 0.11, y: 0 }],
             fill: false,
             pointRadius: 5,
@@ -70,14 +74,14 @@ var configi = {
         labels: 'V(node2)',
         datasets: [{
             label: 'قيمة التيار المتدفق بالنسبة للزمن',
-            backgroundColor: 'Chocolate',
-            borderColor: 'Chocolate',
+            backgroundColor: 'rgb(191, 0, 20)',
+            borderColor: 'rgb(191, 0, 20)',
             data: [{ x: 0, y: -0.1 }, { x: "0.005", y: "-0.079670347" }, { x: "0.022", y: -0.036788 }, { x: "0.044000", y: -0.013534 }, { x: "0.066000", y: -0.004979 }, { x: "0.088000", y: -0.001832 }, { x: "0.110000", y: -0.000674 }],
             fill: false,
         }, {
             label: 'مخرجات ثابت الزمن',
-            backgroundColor: 'Violet',
-            borderColor: 'Violet',
+            backgroundColor: 'rgb(0, 162, 232)',
+            borderColor: 'rgb(0, 162, 232)',
             data: [{ x: 0.022, y: 0 }, { x: 0.044, y: 0 }, { x: 0.066, y: 0 }, { x: 0.088, y: 0 }, { x: 0.11, y: 0 }],
             fill: false,
             pointRadius: 5,
@@ -209,23 +213,23 @@ document.getElementById('btn-chart').addEventListener('click', function() {
     }
     var newDatasetu = {
         label: 'فولتية المكثف بالنسبة للزمن',
-        backgroundColor: 'SlateBlue',
-        borderColor: 'SlateBlue',
+        backgroundColor: 'rgb(229, 166, 25)',
+        borderColor: 'rgb(229, 166, 25)',
         data: upoints,
         fill: false,
     };
     var newDataseti = {
         label: 'قيمة التيار المتدفق بالنسبة للزمن',
-        backgroundColor: 'Chocolate',
-        borderColor: 'Chocolate',
+        backgroundColor: 'rgb(191, 0, 20)',
+        borderColor: 'rgb(191, 0, 20)',
         data: ipoints,
         fill: false
     };
 
     var newDatasetCT = {
         label: 'مخرجات ثابت الزمن',
-        backgroundColor: 'Violet',
-        borderColor: 'Violet',
+        backgroundColor: 'rgb(0, 162, 232)',
+        borderColor: 'rgb(0, 162, 232)',
         data: tData,
         fill: false,
         pointRadius: 5,

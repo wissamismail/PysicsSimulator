@@ -39,7 +39,15 @@ div {
 
 #labelHeader {
     padding-right: 20px;
+    margin-top: 30px;
     font-size: larger;
+    color: rgb(255, 255, 255);
+}
+
+#labelHeader1 {
+    margin-right: 72px;
+    padding-top: 30px !important;
+    font-size: small;
     color: rgb(255, 255, 255);
 }
 
@@ -80,7 +88,7 @@ input[type=number]::-webkit-inner-spin-button:after {
     text-decoration: none;
     border: none;
     text-align: center;
-    background-color: rgb(83, 138, 189);
+    background-color: rgb(196, 0, 23);
     transition: all 0.5s;
     cursor: pointer;
     border-radius: 5px;
@@ -163,22 +171,38 @@ canvas {
 }
 
 #data-table {
-    border-collapse: collapse;
+    border: 1px solid #516eb1;
+    border-spacing: 0;
+    border-collapse: separate;
+    border-top-right-radius: 1em;
+    border-bottom-left-radius: 1em;
+    border-top-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+    overflow: hidden;
+    display: inline-block;
 }
 
 #data-table thead td {
     background-color: rgb(55, 124, 189);
+    border: 1px solid rgb(55, 124, 255);
     color: rgb(255, 255, 255);
     font-weight: bold;
     text-align: center;
 }
 
 #data-table td {
-    border: 1px solid #466E85;
-    width: 110px;
+    border: 0.5px solid #5ab6eb;
+    width: 130px;
     padding: 2px;
+    text-align: center;
 }
 
 tr:nth-child(even) {
-    background-color: white;
+    background-color: rgb(187, 227, 255);
+    opacity: 0.8;
+}
+
+tr:nth-child(odd) {
+    background-color: rgb(255, 255, 255);
+    opacity: 0.8;
 }
