@@ -9,6 +9,10 @@ body {
     font-family: 'Droid Arabic Regular';
 }
 
+#myform {
+    padding-right: 30px;
+}
+
 #main-container {
     overflow: auto;
     min-width: 600px;
@@ -107,6 +111,10 @@ input[type=number]::-webkit-inner-spin-button:after {
     right: 0;
 }
 
+#my-buttons {
+    margin-bottom: 10px;
+}
+
 label {
     padding: 14px;
     font-size: larger;
@@ -115,7 +123,6 @@ label {
 
 #my-labels {
     padding-top: 10px;
-    padding-bottom: 0px;
 }
 
 .label-calculate {
@@ -139,10 +146,6 @@ input[type=checkbox] {
 hr {
     border-top: 1px solid rgb(138, 176, 214);
     margin: 15px;
-}
-
-#myChart {
-    width: 500px;
 }
 
 canvas {

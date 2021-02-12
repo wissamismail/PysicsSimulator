@@ -3,27 +3,44 @@
     src: url("../Common/HacenTunisiaBold_0.ttf");
 }
 
-html,
 body {
     direction: rtl;
     padding: 1px;
     font-family: 'Droid Arabic Regular';
+}
+
+#myform {
+    padding-right: 30px;
+}
+
+#main-container {
+    overflow: auto;
     min-width: 600px;
     max-width: 600px;
     width: 600px;
+    padding: 0px;
+    background-image: url('../Common/background.png');
 }
 
 div {
     padding: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-right: 20;
 }
 
-h2 {
-    margin-bottom: 10px;
-    text-align: center;
+#myHeader {
+    width: 600px;
+    height: 150px;
+    background-image: url('../Common/header.png');
+    background-repeat: no-repeat;
+    background-size: auto;
+    padding: 0px;
+    display: inline-block;
+}
+
+#labelHeader {
+    padding-right: 20px;
     font-size: larger;
-    color: rgb(25, 60, 90);
+    color: rgb(255, 255, 255);
 }
 
 input[type=number]::-webkit-inner-spin-button,
@@ -94,6 +111,10 @@ input[type=number]::-webkit-inner-spin-button:after {
     right: 0;
 }
 
+#my-buttons {
+    margin-bottom: 10px;
+}
+
 label {
     padding: 14px;
     font-size: larger;
@@ -102,7 +123,6 @@ label {
 
 #my-labels {
     padding-top: 10px;
-    padding-bottom: 0px;
 }
 
 .label-calculate {
@@ -123,20 +143,12 @@ input[type=checkbox] {
     border-radius: 5px;
 }
 
-#main-container {
-    overflow: auto;
-    border: 1px solid rgba(141, 139, 139, 0.226);
-    background-color: rgb(238, 246, 255);
-    padding: 10;
-}
-
 hr {
     border-top: 1px solid rgb(138, 176, 214);
     margin: 15px;
 }
 
 #myChart {
-    min-width: 500px;
     width: 500px;
 }
 
@@ -175,6 +187,9 @@ tr:nth-child(even) {
     background-color: white;
 }
 
+
+/*--------------------------------------------*/
+
 .rowStyle {
     background-color: #c0e0f3;
     font-size: 15px;
@@ -184,8 +199,11 @@ tr:nth-child(even) {
 
 .rowTotalStyle {
     background-color: #158dd3;
-    font-size: 15px;
+    font-size: 17px;
     text-align: center;
     font-weight: bold;
-    color: rgb(11, 42, 146);
+}
+
+#myimage {
+    padding: 25px;
 }
